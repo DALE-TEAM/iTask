@@ -1,0 +1,7 @@
+{
+  "name": "iTask",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
