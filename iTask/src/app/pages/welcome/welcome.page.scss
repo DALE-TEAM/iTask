@@ -1,0 +1,23 @@
+ion-content{
+  --background: #d9d9d9;
+}
+ion-grid{
+  text-align: center;
+}
+ion-grid ion-img{
+  width: 400px;
+  position: relative;
+  left: 5%;
+  top: 15%;
+}
+
+ion-col{
+  padding: 0;
+  display: flex;
+  justify-content: center;
+
+}
+.didascalia{
+  color: #333333;;
+  text-align: center;
+}

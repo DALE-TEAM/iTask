@@ -1,0 +1,43 @@
+<ion-content class="ion-padding">
+  <div class="center-img">
+    <ion-img src="../../../assets/icon/bitask.png" style="width:150px;"> </ion-img>
+  </div>
+  <ion-grid>
+    <form [formGroup]="loginForm" class="list-form">
+      <ion-row class="form">
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div padding>
+              <ion-item no-padding class="animated fadeInUp">
+                <ion-icon name="person-outline"></ion-icon>
+                <ion-input name="email" type="email" placeholder="E-mail" formControlName="email"></ion-input>
+              </ion-item>
+              <ion-item no-padding class="animated fadeInUp">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <ion-input name="password" type="password" placeholder="Password" formControlName="password"></ion-input>
+              </ion-item>
+            </div>
+            <ion-button size="medium" color="green" expand="block" shape="round" (click)="login()" [disabled]="!loginForm.valid" tappable>login</ion-button>
+          </ion-col>
+        </ion-row>
+      </form> 
+    <ion-row class="ion-justify-content-center">
+      oppure accedi con
+    </ion-row>
+    <br>
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-button (click)="loginGoogle()" class="google">
+          <ion-icon name="logo-google"></ion-icon>
+        </ion-button><br>
+        Google
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="loginFacebook()" class="facebook">
+          <ion-icon name="logo-facebook"></ion-icon>        
+        </ion-button><br>
+        Facebook
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>
