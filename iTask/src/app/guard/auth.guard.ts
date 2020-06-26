@@ -9,8 +9,9 @@ import {map, take} from 'rxjs/operators';
     providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
-    constructor(private userServ: UserService, private navCtrl: NavController) {
-    }
+    constructor(
+        private userServ: UserService, 
+        private navCtrl: NavController) {}
 
     canActivate(): Observable<boolean> {
 

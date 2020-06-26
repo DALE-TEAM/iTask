@@ -4,6 +4,8 @@ import {Storage} from '@ionic/storage';
 import { ToastController, Platform } from '@ionic/angular';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import { User } from '../model/user.model';
+import { Token } from '@angular/compiler/src/ml_parser/lexer';
 
 @Injectable({
   providedIn: 'root'
@@ -11,5 +13,27 @@ import {map} from 'rxjs/operators';
 
 export class UserService {
 
-  constructor() { }
-}
+  private authToken: string;
+  private loggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private utente$: BehaviorSubject<User> = new BehaviorSubject<User>({} as User);
+
+  private url = 'http://localhost:8888/iTaskServer/api/user';
+  
+  constructor(private http: HttpClient, private storage: Storage) { 
+   //controllo token
+  }
+
+
+ 
+  login(credentials: User): Observable<string> {
+    return this.http.post< { token : string } >(`${this.url}/login.php`, credentials).pipe(
+      map(response => response.token)
+    );
+  }
+
+  register(user: User) {
+    return this.http.post(`${this.url}/register.php`, user);
+  }
+
+
+  }
