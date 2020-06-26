@@ -9,8 +9,9 @@
   <div class="title">
     <h2>REGISTRATI</h2>
   </div>
+  <br>
   <ion-grid>
-    <form [formGroup]="RegForm">
+    <form [formGroup]="RegForm"  class="list-form">
       <ion-row>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
           <div padding>
@@ -20,7 +21,7 @@
             </ion-item>
             <ion-item no-padding class="animated fadeInUp">
               <ion-icon name="lock-closed-outline"></ion-icon>
-              <ion-input name="password" type="password" placeholder="Password" formControlName="password"></ion-input>
+              <ion-input name="password" type="password" placeholder="Password min. 8 caratteri" formControlName="password"></ion-input>
             </ion-item>
             <ion-item no-padding class="animated fadeInUp">
               <ion-input name="email" type="email" placeholder="Nome" formControlName="nome"></ion-input>
@@ -29,7 +30,9 @@
               <ion-input name="email" type="email" placeholder="Cognome" formControlName="cognome"></ion-input>
             </ion-item>
           </div>
-          <ion-button size="medium" color="green" expand="block" shape="round" (click)="registration()"  [disabled]="!RegForm.valid"tappable>Registrati</ion-button>
+          <input type="checkbox"> &nbsp; Accetto i termini e le condizioni
+          <br><br>
+          <ion-button size="medium" color="green" expand="block" shape="round" (click)="registration()"  [disabled]="!RegForm.valid" tappable>Registrati</ion-button>
         </ion-col>
       </ion-row>
     </form>

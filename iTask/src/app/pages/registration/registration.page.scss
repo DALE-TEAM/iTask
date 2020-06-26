@@ -2,11 +2,12 @@ ion-toolbar{
     --background: transparent;
 }
 .title{
-    height: 30px;
+    height: fit-content;
     background-color: darken($color: #333333, $amount: 3);
     text-align: center;
     h2{
         margin: 0;
+        padding: 5%;
     }
 }
 .form{
@@ -19,7 +20,7 @@ ion-toolbar{
  ion-item{
     --inner-padding-end: 0px;
     --padding-start:0px;
-    margin-bottom: 4%;
+    margin-bottom: 5%;
  }
  ion-input{
     margin-left: 5%;

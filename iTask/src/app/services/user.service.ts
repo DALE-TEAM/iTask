@@ -20,7 +20,12 @@ export class UserService {
   private url = 'http://localhost:8888/iTaskServer/api/user';
   
   constructor(private http: HttpClient, private storage: Storage) { 
-   //controllo token
+   this.storage.get('token').then((token)=>{
+     this.authToken = token;
+     if(token !== null && token !== undefined && token !== ''){
+       this.loggedIn$.next(true);
+     }
+   });
   }
 
 
@@ -34,9 +39,8 @@ export class UserService {
   register(user: User) {
     return this.http.post(`${this.url}/register.php`, user);
   }
-
+  
   isLogged(): Observable<boolean> {
     return this.loggedIn$.asObservable();
-}
-
   }
+}
