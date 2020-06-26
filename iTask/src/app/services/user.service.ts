@@ -35,6 +35,8 @@ export class UserService {
     return this.http.post(`${this.url}/register.php`, user);
   }
 
-  isLogged(){};
+  isLogged(): Observable<boolean> {
+    return this.loggedIn$.asObservable();
+}
 
   }

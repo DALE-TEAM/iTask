@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="title">
+    <h2>REGISTRATI</h2>
+  </div>
+  <ion-grid>
+    <form [formGroup]="RegForm">
+      <ion-row>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+            <ion-item no-padding class="animated fadeInUp">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input name="email" type="email" placeholder="E-mail" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item no-padding class="animated fadeInUp">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <ion-input name="password" type="password" placeholder="Password" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item no-padding class="animated fadeInUp">
+              <ion-input name="email" type="email" placeholder="Nome" formControlName="nome"></ion-input>
+            </ion-item>
+            <ion-item no-padding class="animated fadeInUp">
+              <ion-input name="email" type="email" placeholder="Cognome" formControlName="cognome"></ion-input>
+            </ion-item>
+          </div>
+          <ion-button size="medium" color="green" expand="block" shape="round" (click)="registration()"  [disabled]="!RegForm.valid"tappable>Registrati</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+  
+</ion-content>
