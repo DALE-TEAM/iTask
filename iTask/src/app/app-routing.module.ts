@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'registration',
     loadChildren: () => import('./pages/registration/registration.module').then( m => m.RegistrationPageModule)
   },
+  {
+    path: 'lista-task',
+    loadChildren: () => import('./pages/lista-task/lista-task.module').then( m => m.ListaTaskPageModule)
+  },
 
 
 
