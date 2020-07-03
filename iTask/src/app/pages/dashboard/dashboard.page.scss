@@ -1,0 +1,39 @@
+.my-custom-menu {
+    --width: 500px;
+  }
+
+.default-tasks{
+text-align: center;
+
+}
+.default-task-topicon{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+margin-top:-70%;
+}
+.default-task-topicon-star{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  margin-top:-50%;
+}
+.default-task-topicon-all{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  margin-top:-70%;
+}
+.default-task-bottomicon{
+  display: flex;
+ // flex-flow: column nowrap;
+  align-items: end;
+margin-bottom: -70%;
+
+}
+.default-task-arrow{
+  color: white;
+}
+.default-task-calendar{
+  color: white;
+}

@@ -1,9 +1,109 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>dashboard</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
+
+  <ion-app>
+    <ion-menu side="end" content-id="main-content">
+      <ion-header>
+        <ion-toolbar translucent>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item>
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-label>Inbox</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="paper-plane" slot="start"></ion-icon>
+            <ion-label>Outbox</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="heart" slot="start"></ion-icon>
+            <ion-label>Favorites</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="archive" slot="start"></ion-icon>
+            <ion-label>Archived</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="trash" slot="start"></ion-icon>
+            <ion-label>Trash</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="warning" slot="start"></ion-icon>
+            <ion-label>Spam</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-menu-button  style="color: white;"></ion-menu-button>
+          </ion-buttons>
+          <ion-title><img src="/../assets/icon/iTask.png"></ion-title>
+          <ion-buttons slot="start">
+            <ion-button>
+              <ion-icon slot="icon-only" style="color: white;" name="calendar-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+    <ion-content>
+      <ion-searchbar animated  showCancelButton="focus"></ion-searchbar>
+      <div class="default-tasks">
+        <ion-button style="width: 30%; height:75px; " color="medium">
+
+
+        <div class="default-task-topicon">
+        <ion-icon class="default-task-calendar"     name="calendar-outline"></ion-icon>
+        </div>
+        OGGI
+        <div class="default-task-bottomicon">
+
+       4 <ion-icon class="default-task-arrow"  name="chevron-forward-outline"></ion-icon>
+        </div>
+        </ion-button>
+        <ion-button style="width: 30%; height:75px; " color="medium">
+
+
+          <div class="default-task-topicon-star">
+            <ion-icon class="default-task-calendar"     name="calendar-outline"></ion-icon>
+            PREFERITI
+          </div>
+
+          <div class="default-task-bottomicon">
+
+            4 <ion-icon class="default-task-arrow"  name="chevron-forward-outline"></ion-icon>
+          </div>
+
+        </ion-button>
+        <ion-button style="width: 30%; height:75px; " color="medium">
+
+
+          <div class="default-task-topicon-all">
+            <ion-icon class="default-task-calendar"     name="calendar-outline"></ion-icon>
+          </div>
+          TUTTI
+          <div class="default-task-bottomicon">
+
+            12 <ion-icon class="default-task-arrow"  name="chevron-forward-outline"></ion-icon>
+          </div>
+
+        </ion-button>
+
+
+      </div>
+
+    </ion-content>
+
+    </div>
+
+  </ion-app>
 
 </ion-content>
