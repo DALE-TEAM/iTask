@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AlertController, NavController, LoadingController} from '@ionic/angular';
+import {AlertController, NavController, LoadingController, Platform} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/model/user.model';
@@ -15,7 +15,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LoginPage implements OnInit {
 
-  private loginForm: FormGroup;
+  loginForm: FormGroup;
   isloggin$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
@@ -25,7 +25,8 @@ export class LoginPage implements OnInit {
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,        
     private navCtrl: NavController,
-    private UserSrv: UserService){}
+    private UserSrv: UserService,
+    private pltform: Platform){}
   
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -59,7 +60,15 @@ export class LoginPage implements OnInit {
   }
   
   loginGoogle(){
-    /* login con google */
+    if (this.pltform.is('cordova')){
+      this.UserSrv.loginGoogle().then(()=>{
+        this.navCtrl.navigateRoot('/dashboard');
+      }).catch(err => {
+         alert('errore');
+      })
+    }else{
+      alert('dispositivo non cordova');
+    }
   }
 
   loginFacebook(){
