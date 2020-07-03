@@ -1,0 +1,70 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkbox</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@next/css/ionic.bundle.css"/>
+  <style>
+    :root {
+      --ion-safe-area-top: 20px;
+      --ion-safe-area-bottom: 22px;
+    }
+  </style>
+</head>
+<body>
+<ion-app>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-title> <ion-icon class="return" name="arrow-back-outline"></ion-icon>Lista Task <ion-icon class="point" name="ellipsis-horizontal-outline"></ion-icon></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen>
+
+
+
+    <ion-button  color="lightyellow"  expand="block">
+
+      <ion-icon class="icon"  slot="icon-only" name="file-tray-full-outline"> </ion-icon> LAVORO
+    </ion-button>
+
+    <ion-list >
+      <ion-item>
+        <ion-label>
+          <h2>Jon Snow</h2>
+          <p class="listaT"> <ion-icon name="notifications-outline"> </ion-icon> Mar 24 aprile 11:30  <ion-icon class="punto" name="ellipse"></ion-icon> <ion-icon name="location-outline"></ion-icon><ion-icon class="punto" name="ellipse"></ion-icon> <ion-icon name="document-text-outline"></ion-icon> </p>
+        </ion-label>
+
+        <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+        <ion-label>
+          <h2>Mr Spino</h2>
+          <p> <ion-icon name="location-outline"></ion-icon> Via sotto la chiesa</p>
+        </ion-label>
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+        <ion-label>
+          <h2> andrea </h2>
+          <p></p>
+        </ion-label>
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-app>
+
+<ion-fab horizontal="end" vertical="bottom" slot="fixed">
+
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</body>
+
+
