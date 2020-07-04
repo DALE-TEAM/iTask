@@ -20,13 +20,18 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),
     canActivateChild: [AuthGuard]
-  },  {
+  },
+  {
     path: 'registration',
     loadChildren: () => import('./pages/registration/registration.module').then( m => m.RegistrationPageModule)
   },
   {
     path: 'lista-task',
     loadChildren: () => import('./pages/lista-task/lista-task.module').then( m => m.ListaTaskPageModule)
+  },
+  {
+    path: 'calendar',
+    loadChildren: () => import('./pages/calendar/calendar.module').then(m => m.CalendarPageModule)
   },
 
 

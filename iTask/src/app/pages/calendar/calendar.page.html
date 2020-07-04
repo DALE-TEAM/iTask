@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Calendario
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+
+    <ion-calendar [(ngModel)]="dateMulti"
+                  [options]="optionsMulti"
+                  [type]="type"
+                  [format]="'YYYY-MM-DD'">
+    </ion-calendar>
+
+
+
+  </div>
+</ion-content>
+
+

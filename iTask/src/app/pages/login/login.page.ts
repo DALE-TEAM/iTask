@@ -16,7 +16,7 @@ import { BehaviorSubject } from 'rxjs';
 export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
-  isloggin$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  loggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
     private storage: Storage,
@@ -45,9 +45,9 @@ export class LoginPage implements OnInit {
     
     this.UserSrv.login(this.loginForm.value).subscribe(
         async token => {
+          this.loggedIn$.next(true);
           this.storage.set('token', token);
           loading.dismiss();
-          this.isloggin$.next(true);
           this.navCtrl.navigateRoot('/dashboard');
         },
 
