@@ -1,39 +1,65 @@
 .my-custom-menu {
-    --width: 500px;
-  }
+  --width: 500px;
+}
 
-.default-tasks{
-text-align: center;
+.center-items{
+  text-align: center;
 
+}
+
+#container_default-task{
+  display: flex;
+  flex-flow: column nowrap;
+  font-family: "Lato Regular";
 }
 .default-task-topicon{
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: start;
-margin-top:-70%;
-}
-.default-task-topicon-star{
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: start;
-  margin-top:-50%;
-}
-.default-task-topicon-all{
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: start;
-  margin-top:-70%;
+  margin-left: -60px;
+  margin-top: -5px;
+  margin-bottom: 7px;
 }
 .default-task-bottomicon{
-  display: flex;
- // flex-flow: column nowrap;
-  align-items: end;
-margin-bottom: -70%;
+  margin-left: 60px;
+  margin-top: 8px;
+  font-size: small;
+}
+
+.default-task-calendar{
 
 }
-.default-task-arrow{
-  color: white;
+
+#imieielenchi{
+  margin: 10px;
 }
-.default-task-calendar{
-  color: white;
+.icon {
+  position: absolute;
+
+  right: 89%;
 }
+.addList{
+  width: 92%;
+  height: 33px;
+  --border-radius: 5px;
+}
+.list{
+  text-align: center;
+  margin-left: 3%;
+}
+.elenchi-task{
+  width: 96%;
+}
+.elenchi-task-sliding{
+  margin:2px;
+}
+.elenchi-task-sliding-option1{
+
+}
+.elenchi-task-sliding-option2{
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+
+.list-item{
+  border-radius: 5px;
+}
+

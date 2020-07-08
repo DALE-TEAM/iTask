@@ -54,53 +54,94 @@
         </ion-toolbar>
       </ion-header>
 
-    <ion-content>
-      <ion-searchbar animated  showCancelButton="focus"></ion-searchbar>
-      <div class="default-tasks">
-        <ion-button style="width: 30%; height:75px; " color="medium">
+      <ion-content>
+        <ion-searchbar animated  showCancelButton="focus"></ion-searchbar>
 
-
-        <div class="default-task-topicon">
-        <ion-icon class="default-task-calendar"     name="calendar-outline"></ion-icon>
+        <div class="center-items">
+          <!-- -----------  oggi  -------------- -->
+          <ion-button style="width: 30%; height:75px;  " color="secondary">
+            <div id="container_default-task">
+              <div class="default-task-topicon">
+                <ion-icon class="default-task-calendar"     name="calendar-outline"></ion-icon>
+              </div>
+              OGGI
+              <div class="default-task-bottomicon">
+                4
+              </div>
+            </div>
+            <!-- -----------  preferiti  -------------- -->
+          </ion-button>
+          <ion-button style="width: 30%; height:75px; " color="secondary">
+            <div id="container_default-task">
+              <div class="default-task-topicon">
+                <ion-icon class="default-task-calendar"     name="star"></ion-icon>
+              </div>
+              PREFERITI
+              <div class="default-task-bottomicon">
+                4
+              </div>
+            </div>
+          </ion-button>
+          <!-- -----------  Tutti  -------------- -->
+          <ion-button style="width: 30%; height:75px; " color="secondary">
+            <div id="container_default-task">
+              <div class="default-task-topicon">
+                <ion-icon class="default-task-calendar"     name="list"></ion-icon>
+              </div>
+              TUTTI
+              <div class="default-task-bottomicon">
+                12
+              </div>
+            </div>
+          </ion-button>
         </div>
-        OGGI
-        <div class="default-task-bottomicon">
 
-       4 <ion-icon class="default-task-arrow"  name="chevron-forward-outline"></ion-icon>
+        <div id="imieielenchi">
+          I miei elenchi:
         </div>
-        </ion-button>
-        <ion-button style="width: 30%; height:75px; " color="medium">
+        <div class="center-items">
+          <ion-button  class="ion-activatable ripple-parent" class="addList" color="tertiary">
+            <ion-icon class="icon"  slot="icon-only" name="add-outline"> </ion-icon>
+            <ion-label>Aggiungi un nuovo elenco</ion-label>
+            <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+          </ion-button>
+        </div>
+        <div class="list">
+          <ion-list  class="elenchi-task">
+
+            <ion-item-sliding class="elenchi-task-sliding" *ngFor="let session of reminder" >
+              <ion-item class="list-item" color="{{session.color}}" (click)="NavParty(session.reminder_id)">
+                <ion-icon slot="start" name="{{session.icon}}"></ion-icon>
+                <ion-label>
+                  <h2> {{session.name}}</h2>
+                </ion-label>
+                {{session.numTask}} <ion-icon name="chevron-forward-outline"></ion-icon>
+              </ion-item>
+              <ion-item-options>
+                <ion-item-option class="elenchi-task-sliding-option1" color="tertiary">
+                  <ion-icon slot="top" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+                  Modifica
+                </ion-item-option>
+                <ion-item-option class="elenchi-task-sliding-option2"  color="tertiary" (click)="delete_reminder(session.reminder_id)">
+                  <ion-icon slot="top" name="trash-outline"></ion-icon>
+                  Elimina
+                </ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+
+          </ion-list >
+        </div>
+        <ion-fab horizontal="end" vertical="bottom" slot="fixed">
 
 
-          <div class="default-task-topicon-star">
-            <ion-icon class="default-task-calendar"     name="calendar-outline"></ion-icon>
-            PREFERITI
-          </div>
+          <ion-fab-button color="tertiary">
 
-          <div class="default-task-bottomicon">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
 
-            4 <ion-icon class="default-task-arrow"  name="chevron-forward-outline"></ion-icon>
-          </div>
+      </ion-content>
 
-        </ion-button>
-        <ion-button style="width: 30%; height:75px; " color="medium">
-
-
-          <div class="default-task-topicon-all">
-            <ion-icon class="default-task-calendar"     name="calendar-outline"></ion-icon>
-          </div>
-          TUTTI
-          <div class="default-task-bottomicon">
-
-            12 <ion-icon class="default-task-arrow"  name="chevron-forward-outline"></ion-icon>
-          </div>
-
-        </ion-button>
-
-
-      </div>
-
-    </ion-content>
 
     </div>
 
