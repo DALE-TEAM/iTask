@@ -12,34 +12,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
    $data = array();
    if(isset($_GET['id'])){
         $id= $conn->real_escape_string($_GET['id']);
-        $sql= $conn->query("SELECT  reminder_id, icon, name, color, numTask FROM reminders  JOIN userReminder ON reminders.reminder_id = userReminder.reminder 
-        WHERE userReminder.user='$id';");
-       
-        while ($d = $sql->fetch_assoc()){
+        $sql= $conn->query("SELECT * FROM tasks	 WHERE remindersKey='$id';");
+        if($sql){
+            while ($d = $sql->fetch_assoc()){
                 $data[]=$d;
-
             }
+            http_response_code(201);
 
-    }
-
-    if(isset($_GET['idR'])){
-        $id= $conn->real_escape_string($_GET['idR']);
-        $sql= $conn->query("SELECT  reminder_id, icon, name, color, numTask FROM reminders  
-        WHERE reminder_id='$id';");
+        }
+        else{
+            http_response_code(500);
+        }
        
-        while ($d = $sql->fetch_assoc()){
-                $data[]=$d;
-
-            }
-
     }
+    if(isset($_GET['idTask'])){
+        $idTask= $conn->real_escape_string($_GET['idTask']);
+        $sql= $conn->query("SELECT favorite from tasks where task_id='$idTask';");
+        if($sql){
 
-   
-     //return
+            $result = $sql->fetch_assoc();
+            $resFavorite = $result['favorite'];
+            
+           $starOutline='star-outline';
+           $star='star';
+
+            if($resFavorite == $starOutline){
+                $sql1= $conn->query("UPDATE `tasks` SET `favorite`='star' WHERE tasks.task_id='$idTask';");
+           // $resFavorite = 'changed in star';
+            }
+            if($resFavorite == $star){
+                $sql1= $conn->query("UPDATE `tasks` SET `favorite`='star-outline' WHERE tasks.task_id='$idTask';");
+           // $resFavorite = 'changhed in star-outline';
+            }
+    
+            http_response_code(201);
+
+        }
+        else{
+            http_response_code(500);
+        }
+       
+    }
+    //return
 
     exit (json_encode($data));
 }
 
+/*
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
     
     $data = array();
@@ -83,10 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
          
  
      }
-
-
     
       //return
  
      exit (json_encode($data));
  }
+*/
