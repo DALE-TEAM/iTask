@@ -1,0 +1,257 @@
+<ion-app>
+  <ion-header >
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/pages/login"> </ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        Crea elenco
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="content" >
+
+    <ion-item color="secondary" class="reminder">
+
+      <ion-buttons>
+        <ion-button class="iconReminder">
+
+          <ion-icon  name="menu-outline" class="iconReminder"></ion-icon>  </ion-button>
+      </ion-buttons>
+      <div class="inputDiv">
+        <ion-input   placeholder="Nome elenco" required type="text" class="inputReminder"></ion-input>
+      </div>
+    </ion-item>
+
+
+    <ion-grid class="gridRow">
+
+      <ion-row>
+        <ion-buttons (click)="setColor('lightblue')">
+          <ion-button>
+
+            <ion-icon name="ellipse" class="inputReminder2" color="lightblue" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setColor('lightpink')">
+
+            <ion-icon name="ellipse" class="inputReminder2" color="lightpink"></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setColor('lightgreen')">
+
+            <ion-icon name="ellipse" class="inputReminder2" color="lightgreen"></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setColor('lightpurple')">
+
+            <ion-icon name="ellipse" class="inputReminder2" color="lightpurple"></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setColor('lightorange')">
+
+            <ion-icon name="ellipse" class="inputReminder2" color="lightorange"></ion-icon>  </ion-button>
+        </ion-buttons>
+      </ion-row>
+      <ion-row class="rowColor">
+        <ion-buttons>
+          <ion-button (click)="setColor('bluesea')">
+
+            <ion-icon name="ellipse" class="inputReminder2" color="bluesea"></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setColor('lightbrown')">
+
+            <ion-icon name="ellipse" class="inputReminder2" color="lightbrow"></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setColor('lightyellow')">
+
+            <ion-icon name="ellipse" class="inputReminder2" color="lightyellow"></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setColor('lightred')">
+
+            <ion-icon name="ellipse" class="inputReminder2" color="lightred"></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setColor('greengrass')">
+
+            <ion-icon name="ellipse" class="inputReminder2" color="greengrass"></ion-icon>  </ion-button>
+        </ion-buttons>
+      </ion-row>
+    </ion-grid>
+
+
+    <ion-grid class="gridRow">
+      <ion-row>
+        <ion-buttons (click)="setIcon('alarm')">
+          <ion-button>
+
+            <ion-icon name="alarm" class="inputReminder2"  ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('american-football')">
+
+            <ion-icon name="american-football" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('barbell')">
+
+            <ion-icon name="barbell" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('bookmark')">
+
+            <ion-icon name="bookmark" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('build')">
+
+            <ion-icon name="build" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+      </ion-row>
+      <ion-row class="rowColor">
+        <ion-buttons>
+          <ion-button (click)="setIcon('card')">
+
+            <ion-icon name="card" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('cash')">
+
+            <ion-icon name="cash" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('fitness')">
+
+            <ion-icon name="fitness" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('gift')">
+
+            <ion-icon name="gift" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('hammer')">
+
+            <ion-icon name="hammer" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+      </ion-row>
+      <ion-row class="rowColor">
+        <ion-buttons>
+          <ion-button (click)="setIcon('location')">
+
+            <ion-icon name="location" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('mail-unread')">
+
+            <ion-icon name="mail-unread" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('medical')">
+
+            <ion-icon name="medical" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('moon')">
+
+            <ion-icon  name="moon" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('musical-notes')">
+
+            <ion-icon  name="musical-notes" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+      </ion-row>
+
+      <ion-row class="rowColor">
+        <ion-buttons>
+          <ion-button (click)="setIcon('notification')">
+
+            <ion-icon name="notifications" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('rainy')">
+
+            <ion-icon name="rainy" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('shirt')">
+
+            <ion-icon name="shirt" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('bulb')">
+
+            <ion-icon name="bulb" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('sunny')">
+
+            <ion-icon name="sunny" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+      </ion-row>
+
+      <ion-row class="rowColor">
+        <ion-buttons>
+          <ion-button (click)="setIcon('tennisball')">
+
+            <ion-icon name="tennisball" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('time')">
+
+            <ion-icon name="time" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('train')">
+
+            <ion-icon name="train" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('umbrella')">
+
+            <ion-icon name="umbrella" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('warning')">
+
+            <ion-icon name="warning" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+      </ion-row>
+
+      <ion-row class="rowColor">
+        <ion-buttons>
+          <ion-button (click)="setIcon('car-sport')">
+
+            <ion-icon name="car-sport" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('basketball')">
+
+            <ion-icon name="basketball" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('cart')">
+
+            <ion-icon name="cart" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('flower')">
+
+            <ion-icon name="flower" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="setIcon('key')">
+
+            <ion-icon name="key" class="inputReminder2" ></ion-icon>  </ion-button>
+        </ion-buttons>
+      </ion-row>
+
+    </ion-grid>
+  </ion-content>
+  <ion-button  expand="block" color="secondary" class="buttonDone"> FATTO </ion-button>
+</ion-app>
