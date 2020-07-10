@@ -40,7 +40,11 @@ const routes: Routes = [
   {
     path: 'default-task/:key',
     loadChildren: () => import('./pages/default-task/default-task.module').then( m => m.DefaultTaskPageModule)
+  },  {
+    path: 'add-reminder',
+    loadChildren: () => import('./pages/add-reminder/add-reminder.module').then( m => m.AddReminderPageModule)
   },
+
 
 
 

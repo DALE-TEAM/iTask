@@ -1,0 +1,44 @@
+.iconReminder{
+  height: 50px;
+  width: 50px;
+}
+
+.reminder{
+  --border-radius: 5px;
+  margin-top: 3px;
+}
+.content{
+  --padding-end: 5px;
+  --padding-start: 5px;
+
+}
+.inputReminder {
+  height: 60px;
+}
+.inputDiv{
+  text-align: center;
+}
+.reminder2{
+  margin-top: 30px;
+  --border-radius: 5px;
+}
+.inputReminder2{
+  height: 40px;
+  width: 40px;
+  color: white;
+}
+.gridRow{
+  text-align: center;
+  margin: 5px;
+  margin-top: 35px;
+
+}
+.rowColor{
+  margin-top: 20px;
+}
+.buttonDone{
+  --border-top-left-radius: 5px;
+  --border-top-right-radius: 5px;
+  padding: 2px;
+  margin-top: 5px;
+}
