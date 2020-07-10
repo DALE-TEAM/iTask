@@ -12,10 +12,14 @@
         $email = $data->email;
         $pass = $data->password;
 
+        $hashed = password_hash($pass, PASSWORD_DEFAULT);
+
         $sql = $conn->query("SELECT * FROM users WHERE email = '$email'");
         if ($sql->num_rows > 0) {
             $user = $sql->fetch_assoc();
-           // if (password_verify($pass, $user['password'])) {
+            $hash= $user['password'];
+           
+            if (password_verify($pass, $hash)) {
                 
                 $key = "auth_token";  // JWT KEY
                 $payload = array(
@@ -29,10 +33,10 @@
                 $token = JWT::encode($payload, $key);
                 http_response_code(200);
                 echo json_encode(array('token' => $token));
-            // } else {
-            //     http_response_code(400);
-            //     echo json_encode(array('message' => 'Login Failed!'));
-            // }
+            } else {
+                http_response_code(400);
+                echo $hashed ," ", $hash;
+            }
         } else {
             http_response_code(404);
             echo json_encode(array('message' => 'Login Failed!'));

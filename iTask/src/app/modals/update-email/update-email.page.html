@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modifica Email</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon color="light" slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content ion-padding>
+  <form [formGroup]="updateForm" ion-padding>
+    <ion-item lines="none">
+      <ion-label position="floating">Vecchia E-mail</ion-label>
+      <ion-input name="old" type="email"  formControlName="oldEmail"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="floating">Nuova E-mail</ion-label>
+      <ion-input name="new" type="email" formControlName="newEmail"></ion-input>
+    </ion-item>
+    <br><br>
+      <ion-button color="green" shape="round" expand="block" (click)="update()" [disabled]="!updateForm.valid" tappable>Modifica</ion-button>
+  </form> 
+  <p>Se l'email sarà modificata correttamente sarai reindirizzato alla pagina di login.</p>
+</ion-content>

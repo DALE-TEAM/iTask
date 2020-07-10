@@ -1,0 +1,17 @@
+ion-toolbar{
+    --background: none;
+    --border-style: none;
+}
+ion-title{
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.center{
+    display: flex;
+    justify-content: center !important;
+}
+
+p{
+    margin: 5%;
+}

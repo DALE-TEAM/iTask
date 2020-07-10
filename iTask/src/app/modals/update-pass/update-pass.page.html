@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modifica Password</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon color="light" slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content ion-padding>
+  <form [formGroup]="updateForm" ion-padding>
+    <ion-item lines="none">
+      <ion-label position="floating">Nuova Password</ion-label>
+      <ion-input name="new" type="password" formControlName="newPass"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="floating">Conferma Password</ion-label>
+      <ion-input name="new" type="password" formControlName="confPass"></ion-input>
+    </ion-item>
+    <br><br>
+      <ion-button color="green" shape="round" expand="block" (click)="update()" tappable>Modifica</ion-button>
+  </form>
+  <ion-item lines="none" class='form-text error' *ngIf="updateForm.hasError('passwordNotMatch')">
+    <ion-label no-margin stacked>Le password non combaciano.</ion-label>
+  </ion-item> 
+</ion-content>
