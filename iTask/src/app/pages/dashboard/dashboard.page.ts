@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, ModalController, NavController } from '@ionic/angular';
 import * as jwt_decode from 'jwt-decode';
 import{RemindersService } from "../../services/reminders.service";
 import {Reminder} from "../../model/reminder.model";
@@ -8,6 +8,11 @@ import {IonItemSliding} from '@ionic/angular';
 import {Router} from "@angular/router";
 import {TaskService} from "../../services/task.service";
 import {PlatformLocation} from "@angular/common";
+import { UserService } from 'src/app/services/user.service';
+
+import {  UpdateEmailPage } from '../../modals/update-email/update-email.page';
+import {  UpdatePassPage } from '../../modals/update-pass/update-pass.page';
+
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.page.html',
@@ -16,7 +21,10 @@ import {PlatformLocation} from "@angular/common";
 export class DashboardPage implements OnInit {
     @ViewChild(IonItemSliding) itemSliding: IonItemSliding;
     Uid: any;
+    email: any;
     name: any;
+    surname: any;
+    img: any
     // @ts-ignore
     reminder: Reminder[100] ;
     numberAllTask:any;
@@ -27,11 +35,15 @@ export class DashboardPage implements OnInit {
     constructor(private menu: MenuController,
                 private remindersService: RemindersService,
                 private taskservice: TaskService,
+                private navCtrl: NavController,
+                private modalCtrl: ModalController,
                 private alertCtrl: AlertController,
                 private toastCtrl: ToastController,
                 private loadingCtrl: LoadingController,
                 private router: Router,
-                private location : PlatformLocation
+                private location : PlatformLocation,
+                private UserSrv: UserService,
+                private storage: Storage
     ) { }
     openFirst() {
         this.menu.enable(true, 'first');
@@ -48,7 +60,16 @@ export class DashboardPage implements OnInit {
     }
 
     ngOnInit() {
-
+        this.token = localStorage.getItem('token');
+        if(this.token){
+          let decoded = jwt_decode(this.token);
+          this.storage.set('user', decoded);
+          this.email = decoded.email;
+          this.name = decoded.name;
+          this.surname = decoded.surname;
+          this.img = decoded.img;
+          this.Uid =decoded.user_id;
+      }
 
         /*
              this.token = localStorage.getItem('token');
@@ -57,13 +78,9 @@ export class DashboardPage implements OnInit {
 
             this.name = decoded['name'];
             this.Uid = decoded.user_id;
-
-         */
-
-        this.Uid= 3;
-        console.log(this.Uid);
-
-
+            this.Uid= 3;
+            console.log(this.Uid);
+        */
 
     }
 
@@ -109,8 +126,6 @@ export class DashboardPage implements OnInit {
 
 
 
-
-
     }
 
     ionViewDidEnter(){
@@ -127,4 +142,67 @@ export class DashboardPage implements OnInit {
             this.numberFavoriteTask = response;
         });
     }
+
+    //logout
+ logout(){
+    this.UserSrv.logout();
+ }
+
+//modifica email
+  async UpdateEmail(){
+    const modal = await this.modalCtrl.create({
+      component: UpdateEmailPage
+    });
+    return await modal.present();
+  }
+
+//modifica password
+  async UpdatePass(){
+    const modal = await this.modalCtrl.create({
+      component: UpdatePassPage
+    });
+    return await modal.present();
+  }
+//cancella account
+  async deleteAccount(){
+    const alert = await this.alertCtrl.create({
+      header: 'ELIMINA ACCOUNT',
+      message: 'Sicuro di voler eliminare il tuo account?',
+      cssClass: 'alertCancel',
+      mode: 'ios',
+      buttons: [
+        {
+          text: 'NO',
+          role: 'cancel',
+          cssClass: 'alertButton',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'YES',
+          cssClass: 'alertButton',
+          handler: () => {
+            this.UserSrv.deleteAcc(this.Uid).subscribe(
+              // If success
+              async () => {
+                
+                const toast = await this.toastCtrl.create({ message: 'Account Cancellato', duration: 2000, color: 'dark' });
+                await toast.present();
+                this.navCtrl.navigateRoot(['/login']);
+              },
+               // If there is an error
+               async () => {
+                 const alert = await this.alertCtrl.create({ message: 'There is an error', buttons: ['OK'] });
+                 await alert.present();
+              }
+            );
+          }
+        }
+      ]
+    })
+    await alert.present();
+    
+  }
+
+
 }

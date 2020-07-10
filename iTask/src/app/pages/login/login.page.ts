@@ -47,6 +47,7 @@ export class LoginPage implements OnInit {
         async token => {
           this.loggedIn$.next(true);
           this.storage.set('token', token);
+          localStorage.setItem('token', token);
           loading.dismiss();
           this.navCtrl.navigateRoot('/dashboard');
         },
@@ -71,7 +72,4 @@ export class LoginPage implements OnInit {
     }
   }
 
-  loginFacebook(){
-    /* login con facebook*/
-  }
 }

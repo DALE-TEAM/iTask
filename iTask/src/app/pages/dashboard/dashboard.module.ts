@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
+import { UpdateEmailPage } from '../../modals/update-email/update-email.page'
+import { UpdatePassPage } from '../../modals/update-pass/update-pass.page'
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { DashboardPage } from './dashboard.page';
     IonicModule,
     DashboardPageRoutingModule
   ],
-  declarations: [DashboardPage]
+  declarations: [DashboardPage, UpdateEmailPage, UpdatePassPage],
+  entryComponents: [UpdateEmailPage, UpdatePassPage]
 })
 export class DashboardPageModule {}

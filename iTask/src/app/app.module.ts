@@ -12,12 +12,14 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
 import{ GooglePlus } from "@ionic-native/google-plus/ngx";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule, 
+    ReactiveFormsModule,
     IonicModule.forRoot({
       mode: 'ios'
     }), 
@@ -26,7 +28,8 @@ import{ GooglePlus } from "@ionic-native/google-plus/ngx";
       name: 'itask',
       driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     GooglePlus,

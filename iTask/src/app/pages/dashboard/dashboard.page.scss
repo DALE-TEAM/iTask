@@ -1,3 +1,32 @@
+.center{
+  display: block;
+  width: 100%;
+  padding: 0 7% 0 7%;
+
+  h2{
+    text-align: center !important;
+    border-bottom: 1px solid white ;
+  }
+}
+
+.foot-m{
+  font-size: 0.6rem;
+  text-align: end;
+  margin: 2%;
+}
+
+.img-center{
+  margin-top: 10%;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.avatar {
+  justify-content: center;
+  width: 50%;
+  height: auto;
+}
 .my-custom-menu {
   --width: 500px;
 }

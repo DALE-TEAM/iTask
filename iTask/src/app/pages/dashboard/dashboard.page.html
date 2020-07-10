@@ -1,42 +1,45 @@
-
-
 <ion-content>
 
   <ion-app>
     <ion-menu side="end" content-id="main-content">
-      <ion-header>
-        <ion-toolbar translucent>
-          <ion-title>Menu</ion-title>
-        </ion-toolbar>
-      </ion-header>
       <ion-content>
+      <div class="img-center">
+        <ion-avatar class="avatar">
+          <img src="../../../assets/{{img}}">
+        </ion-avatar>
+      </div>
+      <div class="center">
+        <h2>{{name}} {{surname}}</h2>
+          <ion-text color="light">E-mail</ion-text>: {{email}}
+        <br><br>
         <ion-list>
-          <ion-item>
-            <ion-icon name="mail" slot="start"></ion-icon>
-            <ion-label>Inbox</ion-label>
+          <ion-item button (click)="UpdateEmail()" detail="false" lines="none">
+            <ion-icon name="mail-outline" slot="start"></ion-icon>
+            <ion-label>Modifica email</ion-label>
           </ion-item>
-          <ion-item>
-            <ion-icon name="paper-plane" slot="start"></ion-icon>
-            <ion-label>Outbox</ion-label>
+          
+          <ion-item button (click)="UpdatePass()" detail="false" lines="none">
+            <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+            <ion-label>Modifica password</ion-label>
           </ion-item>
-          <ion-item>
-            <ion-icon name="heart" slot="start"></ion-icon>
-            <ion-label>Favorites</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-icon name="archive" slot="start"></ion-icon>
-            <ion-label>Archived</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-icon name="trash" slot="start"></ion-icon>
-            <ion-label>Trash</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-icon name="warning" slot="start"></ion-icon>
-            <ion-label>Spam</ion-label>
+
+          <ion-item button (click)="deleteAccount()" detail="false" lines="none">
+            <ion-icon name="trash-outline" slot="start"></ion-icon>
+            <ion-label>Cancella Account</ion-label>
           </ion-item>
         </ion-list>
-      </ion-content>
+      </div>
+      <br>
+        <ion-button  (click)="logout()" expand="block" shape="round" size="small" color="danger">
+          <ion-icon name="exit-outline" slot="start"></ion-icon>
+          <ion-label>Logout</ion-label>
+        </ion-button>
+
+     
+       
+    </ion-content>
+    <div class="foot-m">iTask v0.0.1</div>
+
     </ion-menu>
 
     <div class="ion-page" id="main-content">

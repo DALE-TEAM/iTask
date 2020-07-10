@@ -23,23 +23,24 @@
     <ion-row class="ion-justify-content-center">
       oppure accedi con
     </ion-row>
-    <br>
-    <ion-row>
-      <ion-col class="ion-align-self-center">
-        <ion-button (click)="loginGoogle()" class="google">
-          <ion-icon name="logo-google"></ion-icon>
+    <ion-row class="ion-justify-content-center">
+      <!-- <ion-col class="ion-align-self-center"> -->
+        <ion-button (click)="loginGoogle()" shape="round" class="google"  expand="full">
+          Google
         </ion-button><br>
-        Google
-      </ion-col>
-      <ion-col>
+        o
+      
+      <!-- </ion-col> -->
+      <!-- <ion-col>
         <ion-button (click)="loginFacebook()" class="facebook">
           <ion-icon name="logo-facebook"></ion-icon>        
         </ion-button><br>
         Facebook
-      </ion-col>
+      </ion-col> -->
     </ion-row>
+    <row>
+      <ion-button shape="round" routerLink="/registration" expand="full" >registrati</ion-button>
+    </row>
   </ion-grid>
-  <center>
-    <a routerLink="/registration" > Premi qui per registrarti</a>
-  </center>
+ 
 </ion-content>

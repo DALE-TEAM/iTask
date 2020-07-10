@@ -41,7 +41,14 @@ const routes: Routes = [
     path: 'default-task/:key',
     loadChildren: () => import('./pages/default-task/default-task.module').then( m => m.DefaultTaskPageModule)
   },
-
+  {
+    path: 'update-email',
+    loadChildren: () => import('./modals/update-email/update-email.module').then( m => m.UpdateEmailPageModule)
+  },
+  {
+    path: 'update-pass',
+    loadChildren: () => import('./modals/update-pass/update-pass.module').then( m => m.UpdatePassPageModule)
+  },
 
 
 
