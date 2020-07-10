@@ -59,38 +59,38 @@
 
         <div class="center-items">
           <!-- -----------  oggi  -------------- -->
-          <ion-button style="width: 30%; height:75px;  " color="secondary">
+          <ion-button style="width: 30%; height:75px;  " color="secondary" (click)="NavDefault('today')">
             <div id="container_default-task">
               <div class="default-task-topicon">
                 <ion-icon class="default-task-calendar"     name="calendar-outline"></ion-icon>
               </div>
               OGGI
               <div class="default-task-bottomicon">
-                4
+                {{numberTodayTask}}
               </div>
             </div>
             <!-- -----------  preferiti  -------------- -->
           </ion-button>
-          <ion-button style="width: 30%; height:75px; " color="secondary">
+          <ion-button style="width: 30%; height:75px; " color="secondary"(click)="NavDefault('favorite')">
             <div id="container_default-task">
               <div class="default-task-topicon">
                 <ion-icon class="default-task-calendar"     name="star"></ion-icon>
               </div>
               PREFERITI
               <div class="default-task-bottomicon">
-                4
+                {{numberFavoriteTask}}
               </div>
             </div>
           </ion-button>
           <!-- -----------  Tutti  -------------- -->
-          <ion-button style="width: 30%; height:75px; " color="secondary">
+          <ion-button style="width: 30%; height:75px; " color="secondary" (click)="NavDefault('all')">
             <div id="container_default-task">
               <div class="default-task-topicon">
                 <ion-icon class="default-task-calendar"     name="list"></ion-icon>
               </div>
               TUTTI
               <div class="default-task-bottomicon">
-                12
+                {{numberAllTask}}
               </div>
             </div>
           </ion-button>
@@ -110,7 +110,7 @@
           <ion-list  class="elenchi-task">
 
             <ion-item-sliding class="elenchi-task-sliding" *ngFor="let session of reminder" >
-              <ion-item class="list-item" color="{{session.color}}" (click)="NavParty(session.reminder_id)">
+              <ion-item class="list-item" color="{{session.color}}" (click)="NavTask(session.reminder_id)">
                 <ion-icon slot="start" name="{{session.icon}}"></ion-icon>
                 <ion-label>
                   <h2> {{session.name}}</h2>
@@ -141,6 +141,13 @@
         </ion-fab>
 
       </ion-content>
+
+
+      <ion-buttons>
+        <ion-button (click)="ngOnInit()">
+          <ion-icon name="calendar"></ion-icon>
+        </ion-button>
+      </ion-buttons>
 
 
     </div>

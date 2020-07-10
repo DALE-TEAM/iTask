@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
    $data = array();
    if(isset($_GET['id'])){
         $id= $conn->real_escape_string($_GET['id']);
-        $sql= $conn->query("SELECT * FROM tasks	 WHERE remindersKey='$id';");
+        $sql= $conn->query("SELECT * FROM tasks	 WHERE remindersKey='$id' AND state='pending';");
         if($sql){
             while ($d = $sql->fetch_assoc()){
                 $data[]=$d;
@@ -52,6 +52,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             http_response_code(500);
         }
        
+    }
+    if(isset($_GET['idD'])){
+        $idD= $conn->real_escape_string($_GET['idD']);
+        $sql= $conn->query("UPDATE `tasks` SET `state` = 'done' WHERE `tasks`.`task_id` = $idD;");
+        
+            http_response_code(200);
+
+        
+       
+    }
+    if(isset($_GET['idP'])){
+        $idP= $conn->real_escape_string($_GET['idP']);
+        $sql= $conn->query("UPDATE `tasks` SET `state` = 'pending' WHERE `tasks`.`task_id` = $idP;");
+        
+            http_response_code(200);
+
+        
     }
     //return
 

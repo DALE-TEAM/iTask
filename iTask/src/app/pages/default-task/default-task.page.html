@@ -28,12 +28,12 @@
 
     </ion-toolbar>
   </ion-header>
-  <ion-content fullscreen *ngFor="let value of reminder">
+  <ion-content fullscreen>
 
-    <ion-button  color="{{value.color}}"  expand="block">
+    <ion-button  color="tertiary"  expand="block">
 
-      <ion-icon class="icon"  slot="icon-only" name="{{value.icon}}"> </ion-icon>
-      {{value.name}}
+      <ion-icon class="icon"  slot="icon-only" name="{{defIcon}}"> </ion-icon>
+      {{defName}}
     </ion-button>
 
     <ion-list >
@@ -44,7 +44,7 @@
             <h2>{{session.name}}</h2>
             <p  class="listaT">
               <h10 *ngIf="session.dateP !='2000-01-01'">
-              <ion-icon name="notifications-outline"></ion-icon>
+                <ion-icon name="notifications-outline"></ion-icon>
                 {{ session.dateP}}
                 <ion-icon class="punto" name="ellipse"></ion-icon></h10>
               <h10 *ngIf="session.location != 'NULL'">
@@ -81,4 +81,5 @@
     </ion-fab>
   </ion-content>
 </ion-app>
+
 

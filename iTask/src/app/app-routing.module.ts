@@ -26,15 +26,20 @@ const routes: Routes = [
     loadChildren: () => import('./pages/registration/registration.module').then( m => m.RegistrationPageModule)
   },
   {
-    path: 'lista-task',
+    path: 'lista-task/:id',
     loadChildren: () => import('./pages/lista-task/lista-task.module').then( m => m.ListaTaskPageModule)
   },
   {
     path: 'calendar',
     loadChildren: () => import('./pages/calendar/calendar.module').then(m => m.CalendarPageModule)
-  },  {
+  },
+  {
     path: 'add-task',
     loadChildren: () => import('./pages/add-task/add-task.module').then( m => m.AddTaskPageModule)
+  },
+  {
+    path: 'default-task/:key',
+    loadChildren: () => import('./pages/default-task/default-task.module').then( m => m.DefaultTaskPageModule)
   },
 
 

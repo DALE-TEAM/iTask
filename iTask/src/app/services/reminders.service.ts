@@ -17,6 +17,9 @@ export class RemindersService {
   getReminders(id:string){
     return this.http.get<[Reminder]>(this.url + '/Reminders.php' + '?id=' + id);
   }
+  getRemindersById(id:string){
+    return this.http.get<[Reminder]>(this.url + '/Reminders.php' + '?idR=' + id);
+  }
   deleteReminders(id:string){
 
     return this.http.delete(this.url + '/Reminders.php' + '?id=' + id);
