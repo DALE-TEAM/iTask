@@ -1,7 +1,7 @@
 .addTask{
   // margin: 1px;
   border-top-left-radius: 5px;
-  border-top-right-radius: 5px
+  border-top-right-radius: 5px;
 
 }
 .addTask2{
@@ -44,5 +44,8 @@
   --padding-end: 5px;
   --padding-start: 5px;
 }
-
-
+.buttonDone{
+  --border-top-left-radius: 5px;
+  --border-top-right-radius: 5px;
+  padding: 2px;
+}
