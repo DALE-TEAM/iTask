@@ -12,15 +12,20 @@
 
   <ion-content class="content" >
 
-    <ion-item color="secondary" class="reminder">
+    <ion-item color="{{color}}" class="reminder">
 
       <ion-buttons>
         <ion-button class="iconReminder">
 
-          <ion-icon  name="menu-outline" class="iconReminder"></ion-icon>  </ion-button>
+          <ion-icon  name="{{icon}}" class="iconReminder"></ion-icon>  </ion-button>
       </ion-buttons>
       <div class="inputDiv">
-        <ion-input   placeholder="Nome elenco" required type="text" class="inputReminder"></ion-input>
+        <form [formGroup]="form_addReminder" (submit)="createReminder()">
+          <ion-input   formControlName="name" placeholder="Nome elenco" required type="text" class="inputReminder"></ion-input>
+          <ion-input    formControlName="color" required type="color" class="ion-hide"></ion-input>
+          <ion-input   formControlName="icon" required type="text" class="ion-hide"></ion-input>
+
+        </form>
       </div>
     </ion-item>
 
@@ -252,6 +257,7 @@
       </ion-row>
 
     </ion-grid>
+    <form></form>
   </ion-content>
-  <ion-button  expand="block" color="secondary" class="buttonDone"> FATTO </ion-button>
+  <ion-button  (click)="createReminder()" expand="block" color="secondary" class="buttonDone"> FATTO </ion-button>
 </ion-app>
