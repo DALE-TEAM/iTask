@@ -46,7 +46,7 @@ export class UpdatePassPage implements OnInit {
   ngOnInit() {
     this.token = localStorage.getItem('token');
     let decoded = jwt_decode(this.token);
-    this.Uid = decoded.user_id;
+    this.Uid = decoded['user_id'];
   }
   
   async closeModal(){

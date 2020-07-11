@@ -39,7 +39,7 @@ export class UpdateEmailPage implements OnInit {
 
     this.token = localStorage.getItem('token');
     let decoded = jwt_decode(this.token);
-    this.Uid = decoded.user_id;
+    this.Uid = decoded['user_id'];
   }
 
   async closeModal(){
