@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import{ GooglePlus } from "@ionic-native/google-plus/ngx";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgCalendarModule  } from 'ionic2-calendar';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +22,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   imports: [
     BrowserModule, 
     ReactiveFormsModule,
+      NgCalendarModule,
     IonicModule.forRoot({
       mode: 'ios'
     }), 

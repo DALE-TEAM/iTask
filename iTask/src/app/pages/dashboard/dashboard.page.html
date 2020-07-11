@@ -49,11 +49,13 @@
             <ion-menu-button  style="color: white;"></ion-menu-button>
           </ion-buttons>
           <ion-title><img src="/../assets/icon/iTask.png"></ion-title>
+
           <ion-buttons slot="start">
-            <ion-button>
-              <ion-icon slot="icon-only" style="color: white;" name="calendar-outline"></ion-icon>
+            <ion-button (click)="Navcalendar()" >
+              <ion-icon slot="icon-only"  style="color: white;" name="calendar-outline" ></ion-icon>
             </ion-button>
           </ion-buttons>
+
         </ion-toolbar>
       </ion-header>
 
@@ -65,7 +67,13 @@
           <ion-button style="width: 30%; height:75px;  " color="secondary" (click)="NavDefault('today')">
             <div id="container_default-task">
               <div class="default-task-topicon">
-                <ion-icon class="default-task-calendar"     name="calendar-outline"></ion-icon>
+
+                <ion-buttons slot="start">
+                  <ion-button (click)="Navcalendar()" >
+                    <ion-icon slot="icon-only"  style="color: white;" name="calendar-outline" ></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+
               </div>
               OGGI
               <div class="default-task-bottomicon">

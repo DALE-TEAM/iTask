@@ -33,3 +33,44 @@
     --ion-color-shade: var(--ion-color-green-shade) !important;
     --ion-color-tint: var(--ion-color-green-tint) !important;
 }
+
+.monthview-datetable td, .monthview-datetable th{
+    border: none !important;
+
+}
+.monthview-current {
+    background: #7d7d7d !important;
+}
+.monthview-selected{
+    background: #9ec2a5 !important;
+
+}
+.item-native [item-inner] [input-wrapper] [item-inner-highlight] [item-highlight] [no-events-label] [_ngcontent-sjt-c136] {
+    font-weight: bold;
+    color: #ca3a11 !important;
+    text-align: center;
+}
+
+.table[_ngcontent-ixq-c133]{
+    border: none  !important;
+}
+
+.table-bordered[_ngcontent-txl-c133]{
+    border: none !important;
+}
+
+.table.table.table-bordered.table-fixed.monthview-datetable{
+    border: none !important;
+}
+
+.no-events-label {
+    visibility: hidden !important;
+}
+
+.event-detail-container[_ngcontent-qpb-c136]{
+    visibility: hidden !important;
+}
+
+.event-detail-container ios list-ios hydrated{
+    visibility: hidden !important;
+}

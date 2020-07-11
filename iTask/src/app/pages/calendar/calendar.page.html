@@ -1,23 +1,21 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard">  </ion-back-button>
+    </ion-buttons>
     <ion-title>
-      Calendario
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
+<ion-content [fullscreen]="true">
+  <div class="data"><h4>{{now | date:'EEEE dd MMMM yyyy'}} <br></h4></div>
 
-    <ion-calendar [(ngModel)]="dateMulti"
-                  [options]="optionsMulti"
-                  [type]="type"
-                  [format]="'YYYY-MM-DD'">
-    </ion-calendar>
+  <calendar
+          [calendarMode]="calendar.mode"
+          [currentDate]="calendar.currentDate"
+          (onCurrentDateChanged)="onCurrentDateChanged($event)"
+          [locale]="calendar.locale">
 
-
-
-  </div>
+  </calendar>
 </ion-content>
-
-

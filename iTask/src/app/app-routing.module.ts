@@ -29,10 +29,7 @@ const routes: Routes = [
     path: 'lista-task/:id',
     loadChildren: () => import('./pages/lista-task/lista-task.module').then( m => m.ListaTaskPageModule)
   },
-  {
-    path: 'calendar',
-    loadChildren: () => import('./pages/calendar/calendar.module').then(m => m.CalendarPageModule)
-  },
+
   {
     path: 'add-task',
     loadChildren: () => import('./pages/add-task/add-task.module').then( m => m.AddTaskPageModule)
@@ -53,6 +50,11 @@ const routes: Routes = [
     path: 'add-reminder',
     loadChildren: () => import('./pages/add-reminder/add-reminder.module').then( m => m.AddReminderPageModule)
   },
+  {
+    path: 'calendar',
+    loadChildren: () => import('./pages/calendar/calendar.module').then(m => m.CalendarPageModule)
+  },
+
 
 
 

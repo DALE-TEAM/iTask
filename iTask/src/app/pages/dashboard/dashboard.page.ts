@@ -8,6 +8,7 @@ import {IonItemSliding} from '@ionic/angular';
 import {Router} from "@angular/router";
 import {Storage} from '@ionic/storage';
 
+
 import {TaskService} from "../../services/task.service";
 import {PlatformLocation} from "@angular/common";
 import { UserService } from 'src/app/services/user.service';
@@ -66,11 +67,11 @@ export class DashboardPage implements OnInit {
         if(this.token){
           let decoded = jwt_decode(this.token);
           this.storage.set('user', decoded);
-          this.email = decoded.email;
-          this.name = decoded.name;
-          this.surname = decoded.surname;
-          this.img = decoded.img;
-          this.Uid =decoded.user_id;
+          this.email = decoded['email'];
+          this.name = decoded['name'];
+          this.surname = decoded['surname'];
+          this.img = decoded['img'];
+          this.Uid =decoded['user_id'];
       }
 
         /*
@@ -95,6 +96,9 @@ export class DashboardPage implements OnInit {
 
     }
 
+    Navcalendar(){
+        this.navCtrl.navigateRoot('calendar');
+    }
 
 
 

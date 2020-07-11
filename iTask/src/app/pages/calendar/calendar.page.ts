@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {CalendarComponentOptions} from "ion2-calendar";
-import { CalendarModule } from 'ion2-calendar';
-
 
 @Component({
   selector: 'app-calendar',
@@ -9,17 +6,21 @@ import { CalendarModule } from 'ion2-calendar';
   styleUrls: ['./calendar.page.scss'],
 })
 export class CalendarPage implements OnInit {
-  dateMulti: string[];
-  type: 'string';
 
-  optionsMulti: CalendarComponentOptions = {
-    pickMode: 'multi',
-    monthFormat: 'DD  MM  YYY ',
-    weekdays: ['D', 'L', 'M', 'M', 'G', 'V', 'S'],
-    weekStart: 1
-  };
   constructor() { }
 
+  now = new Date();
+
+  calendar = {
+    mode: 'month',
+    currentDate: new Date(),
+    locale: 'en-GB'
+  }
+
+
+  onCurrentDateChanged = (ev: Date) => {
+    console.log('Currently viewed date: ' + ev);
+  };
 
   ngOnInit() {
   }
