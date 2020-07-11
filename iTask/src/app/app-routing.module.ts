@@ -40,7 +40,6 @@ const routes: Routes = [
   {
     path: 'default-task/:key',
     loadChildren: () => import('./pages/default-task/default-task.module').then( m => m.DefaultTaskPageModule)
-<<<<<<< HEAD
   },
   {
     path: 'update-email',
@@ -50,14 +49,12 @@ const routes: Routes = [
     path: 'update-pass',
     loadChildren: () => import('./modals/update-pass/update-pass.module').then( m => m.UpdatePassPageModule)
   },
-=======
-  },  {
+  {
     path: 'add-reminder',
     loadChildren: () => import('./pages/add-reminder/add-reminder.module').then( m => m.AddReminderPageModule)
   },
 
 
->>>>>>> 9619bee1317fb849cb5af4dce223624822f55ee7
 
 
 
