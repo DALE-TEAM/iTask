@@ -90,3 +90,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
  
      exit (json_encode($data));
  }
+ 
+ 
+ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+       $data = json_decode(file_get_contents("php://input"));
+    
+        
+        $name = $data->name;
+        $icon = $data->icon;
+        $color= $data->color;
+        $user =  $data->user;
+    
+         $sql = $conn->query("INSERT INTO reminders (name, icon, color) VALUES ('$name', '$icon', '$color')");
+        if ($sql) {
+
+            $sql1= $conn->query ("SELECT reminder_id from reminders ORDER BY reminder_id DESC LIMIT 1");
+            if($sql1->num_rows > 0){
+                $data1=$sql1->fetch_assoc();
+                $last_id = $data1['reminder_id'];
+            
+                $sql2 = $conn->query("INSERT INTO userReminder (user, reminder) VALUES ('$user', '$last_id')");
+                if ($sql2){
+                    http_response_code(201);
+                   // echo json_encode(array('message' => 'Reminder created'));
+                }
+                else{
+                    http_response_code(500);
+                    echo json_encode(array('message' => 'Internal Server error  '));
+                }
+            
+            }
+
+           
+        } else {
+            http_response_code(500);
+            echo json_encode(array('message' => 'Internal Server error  '));
+    
+        }
+    
+    
+    
+   
+      //return
+ 
+      exit (json_encode($last_id));
+ }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Task} from "../model/task.model";
+import {Task} from '../model/task.model';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,43 +13,46 @@ export class TaskService {
 
   ) { }
 
-  getTask(id:string){
+  getTask(id: string){
     return this.http.get<[Task]>(this.url + '/task.php' + '?id=' + id);
   }
-  getNumTaskAll(id:string){
+  getNumTaskAll(id: string){
     return this.http.get<[string]>(this.url + '/numTaskByUser.php' + '?idAll=' + id);
   }
-  getNumTaskToday(id:string){
+  getNumTaskToday(id: string){
     return this.http.get<[string]>(this.url + '/numTaskByUser.php' + '?idToday=' + id);
   }
-  getNumTaskFavorite(id:string){
+  getNumTaskFavorite(id: string){
     return this.http.get<[string]>(this.url + '/numTaskByUser.php' + '?idFavorite=' + id);
   }
-  getAllTask(id:string){
+  getAllTask(id: string){
     return this.http.get<[Task]>(this.url + '/taskByUser.php' + '?idAll=' + id);
   }
-  getTodayTask(id:string){
+  getTodayTask(id: string){
     return this.http.get<[Task]>(this.url + '/taskByUser.php' + '?idToday=' + id);
   }
-  getFavoriteTask(id:string){
+  getFavoriteTask(id: string){
     return this.http.get<[Task]>(this.url + '/taskByUser.php' + '?idFavorite=' + id);
   }
-  getTaskByDate(id:string, date: string){
+  getTaskByDate(id: string, date: string){
     return this.http.get<[Task]>(this.url + '/taskByDate.php' + '?id=' + id + '&date=' + date);
 
   }
 
 
 
-  setDone(idTdone:string){
+  setDone(idTdone: string){
     return this.http.get(this.url + '/task.php' + '?idD=' + idTdone);
   }
-  setPending(idTpending:string){
+  setPending(idTpending: string){
     return this.http.get(this.url + '/task.php' + '?idP=' + idTpending);
   }
-  alterFavoriteStatus(idTask:any){
-    return this.http.get(this.url + '/task.php?idTask='+idTask );
+  alterFavoriteStatus(idTask: any){
+    return this.http.get(this.url + '/task.php?idTask=' + idTask );
 
+  }
+  addTask(task: Task){
+    return this.http.post<any>(`${this.url}/addtask.php`, task);
   }
 
   /*

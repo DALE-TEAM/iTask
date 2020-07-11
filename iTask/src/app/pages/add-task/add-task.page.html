@@ -25,10 +25,10 @@
       <ion-list class="addTask-block1">
         <ion-item color="secondary" class="addTask" lines="full">
           <ion-input placeholder="Nome task" required type="text" formControlName="name"></ion-input>
-          <ion-checkbox  color="primary"  slot="start" ></ion-checkbox>
+
           <ion-buttons slot="end">
-            <ion-button>
-              <ion-icon slot="icon-only" name="star-outline"></ion-icon>
+            <ion-button (click)="changeFavoriteStatus()">
+              <ion-icon slot="icon-only" name="{{favoriteStatus}}"></ion-icon>
             </ion-button>
           </ion-buttons>
         </ion-item>
@@ -36,20 +36,21 @@
 
       <ion-list>
         <ion-item color="secondary" class="ion-hide">
-          <ion-input  placeholder="Note" required type="text" formControlName="note"></ion-input>
+          <ion-input  required type="text" formControlName="favorite"></ion-input>
         </ion-item>
         <ion-item color="secondary" class="addTask1">
-          <ion-input  placeholder="Note" required type="text" formControlName="note"></ion-input>
+          <ion-input  placeholder="Note"  type="text" formControlName="note"></ion-input>
         </ion-item>
         <ion-item color="secondary" class="addTask2">
-          <ion-input placeholder="Url" required type="text" formControlName="url"></ion-input>
+          <ion-input placeholder="Url"  type="text" formControlName="url"></ion-input>
         </ion-item>
       </ion-list>
 
       <ion-list>
         <ion-item color="secondary" class="choice">
           <ion-label>Priorità</ion-label>
-          <ion-select interface="popover" formControlName="priority">
+          <ion-select  interface="popover"  formControlName="priority">
+            <ion-select-option value="nessuna">Nessuna Priorità</ion-select-option>
             <ion-select-option value="Alta">Alta</ion-select-option>
             <ion-select-option value="Media">Media</ion-select-option>
             <ion-select-option value="Bassa">Bassa</ion-select-option>
@@ -61,9 +62,8 @@
         <ion-item color="secondary" class="choice2">
           <ion-label>Elenco</ion-label>
           <ion-select interface="popover"  formControlName="reminder">
-            <ion-select-option value="Lavoro">lavoro</ion-select-option>
-            <ion-select-option value="Svago">Svago</ion-select-option>
-            <ion-select-option value="Salute">Salute</ion-select-option>
+            <ion-select-option *ngFor="let session of reminder" value="{{session.reminder_id}}">{{session.name}}</ion-select-option>
+
           </ion-select>
         </ion-item>
       </ion-list>
@@ -76,7 +76,7 @@
       </ion-item>
 
       <form *ngIf="date" [formGroup]="form_addDate">
-        <ion-datetime formControlName="dateP"  display-format="DD/MM/YYYY" picker-format="DD/MM/YYYY" class="datetime">
+        <ion-datetime formControlName="dateP" placeholder="-- -- ----" display-format="DD/MM/YYYY" picker-format="DD/MM/YYYY" class="datetime">
         </ion-datetime>
       </form>
     </ion-list>
@@ -89,14 +89,14 @@
         <ion-toggle  [(ngModel)]="hour" slot="end" class="toggle"  color="success"></ion-toggle>
       </ion-item>
       <form *ngIf="hour" [formGroup]="form_addDate">
-        <ion-datetime formControlName="timeP"   display-format="H:mm" picker-format="H:mm" class="datetime1"></ion-datetime>
+        <ion-datetime formControlName="timeP" placeholder="-- : --"  display-format="H:mm" picker-format="H:mm" class="datetime1"></ion-datetime>
       </form>
     </ion-list>
   </ion-content>
 
 
 
-  <ion-button (click)="onAdd()"  expand="block" color="secondary" class="buttonDone"> FATTO </ion-button>
+  <ion-button (click)="onAdd()" [disabled]="!form_addDate.valid"  expand="block" color="secondary" class="buttonDone"> FATTO </ion-button>
 
 
 

@@ -33,31 +33,37 @@
     <ion-grid class="gridRow">
 
       <ion-row>
+
         <ion-buttons (click)="setColor('lightblue')">
           <ion-button>
 
             <ion-icon name="ellipse" class="inputReminder2" color="lightblue" ></ion-icon>  </ion-button>
         </ion-buttons>
+
         <ion-buttons>
           <ion-button (click)="setColor('lightpink')">
 
             <ion-icon name="ellipse" class="inputReminder2" color="lightpink"></ion-icon>  </ion-button>
         </ion-buttons>
+
         <ion-buttons>
           <ion-button (click)="setColor('lightgreen')">
 
             <ion-icon name="ellipse" class="inputReminder2" color="lightgreen"></ion-icon>  </ion-button>
         </ion-buttons>
+
         <ion-buttons>
           <ion-button (click)="setColor('lightpurple')">
 
             <ion-icon name="ellipse" class="inputReminder2" color="lightpurple"></ion-icon>  </ion-button>
         </ion-buttons>
+
         <ion-buttons>
           <ion-button (click)="setColor('lightorange')">
 
             <ion-icon name="ellipse" class="inputReminder2" color="lightorange"></ion-icon>  </ion-button>
         </ion-buttons>
+
       </ion-row>
       <ion-row class="rowColor">
         <ion-buttons>
@@ -174,7 +180,7 @@
 
       <ion-row class="rowColor">
         <ion-buttons>
-          <ion-button (click)="setIcon('notification')">
+          <ion-button (click)="setIcon('notifications')">
 
             <ion-icon name="notifications" class="inputReminder2" ></ion-icon>  </ion-button>
         </ion-buttons>
@@ -257,6 +263,7 @@
       </ion-row>
 
     </ion-grid>
+
     <form></form>
   </ion-content>
   <ion-button  (click)="createReminder()" expand="block" color="secondary" class="buttonDone"> FATTO </ion-button>

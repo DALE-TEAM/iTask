@@ -1,13 +1,13 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import {IonDatetime} from "@ionic/angular";
-import {Task} from "../../model/task.model";
-import {TaskService} from "../../services/task.service";
-import {RemindersService} from "../../services/reminders.service";
-import{Reminder} from "../../model/reminder.model";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AlertController, LoadingController, ToastController,IonReorderGroup} from '@ionic/angular';
-import {IonCheckbox} from "@ionic/angular";
+import {IonDatetime} from '@ionic/angular';
+import {Task} from '../../model/task.model';
+import {TaskService} from '../../services/task.service';
+import {RemindersService} from '../../services/reminders.service';
+import {Reminder} from '../../model/reminder.model';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AlertController, LoadingController, ToastController, IonReorderGroup} from '@ionic/angular';
+import {IonCheckbox} from '@ionic/angular';
 
 @Component({
   selector: 'app-lista-task',
@@ -21,11 +21,11 @@ export class ListaTaskPage implements OnInit {
   task: Task[100] ;
   // @ts-ignore
   reminder: Reminder[100];
-  isChecked :boolean;
+  isChecked: boolean;
 
   constructor(
       private taskService: TaskService,
-      private remindersService:RemindersService,
+      private remindersService: RemindersService,
       private route: ActivatedRoute,
       private router: Router,
       private loadingCtrl: LoadingController,
@@ -45,9 +45,9 @@ export class ListaTaskPage implements OnInit {
 
 
   ngOnInit(){
-this.isChecked=false;
-    let id = this.route.snapshot.paramMap.get('id');
-    this.taskService.getTask(id).subscribe(response => {
+this.isChecked = false;
+const id = this.route.snapshot.paramMap.get('id');
+this.taskService.getTask(id).subscribe(response => {
       this.task = response;
       this.remindersService.getRemindersById(id).subscribe(res => {
         this.reminder = res;
@@ -62,10 +62,10 @@ this.isChecked=false;
     this.reorderGroup.disabled = !this.reorderGroup.disabled;
   }
 
-  async alterFavorite(idTask:any){
+  async alterFavorite(idTask: any){
     const loading = await this.loadingCtrl.create({ message: '' });
     await loading.present();
-    let id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
 
     this.taskService.alterFavoriteStatus(idTask).subscribe( async response => {
           this.taskService.getTask(id).subscribe(response => {
@@ -75,7 +75,7 @@ this.isChecked=false;
 
 
   },
-  //If there is an error
+  // If there is an error
   async () => {
   const alert = await this.alertCtrl.create({ message: 'There is an error', buttons: ['OK'] });
   loading.dismiss();
@@ -83,13 +83,13 @@ this.isChecked=false;
 }
     );
 
-console.log('ciao');
+    console.log('ciao');
   }
 
-  async toast(taskId:any){
-    let id = this.route.snapshot.paramMap.get('id');
+  async toast(taskId: any){
+    const id = this.route.snapshot.paramMap.get('id');
     this.taskService.setDone(taskId).subscribe(response => {});
-    const toast = await this  .toastCtrl.create({ message: 'Task completato', duration: 3500, color: 'tertiary', buttons:[
+    const toast = await this  .toastCtrl.create({ message: 'Task completato', duration: 3500, color: 'tertiary', buttons: [
         {
           text: 'Annulla',
           role: 'cancel',

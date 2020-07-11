@@ -105,7 +105,7 @@
           I miei elenchi:
         </div>
         <div class="center-items">
-          <ion-button  class="ion-activatable ripple-parent" class="addList" color="tertiary">
+          <ion-button (click)="NavCreateReminder()" class="ion-activatable ripple-parent" class="addList" color="tertiary">
             <ion-icon class="icon"  slot="icon-only" name="add-outline"> </ion-icon>
             <ion-label>Aggiungi un nuovo elenco</ion-label>
             <ion-ripple-effect type="unbounded"></ion-ripple-effect>
@@ -139,7 +139,7 @@
         <ion-fab horizontal="end" vertical="bottom" slot="fixed">
 
 
-          <ion-fab-button color="tertiary">
+          <ion-fab-button (click)="NavCreateTask()"color="tertiary">
 
             <ion-icon name="add"></ion-icon>
           </ion-fab-button>
@@ -148,11 +148,7 @@
       </ion-content>
 
 
-      <ion-buttons>
-        <ion-button (click)="ngOnInit()">
-          <ion-icon name="calendar"></ion-icon>
-        </ion-button>
-      </ion-buttons>
+
 
 
     </div>

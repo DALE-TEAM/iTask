@@ -6,53 +6,58 @@ include_once '../../vendor/autoload.php';
 use \Firebase\JWT\JWT;
 
 include_once 'config/cors.php';
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+    $data = json_decode(file_get_contents("php://input"));
+ 
+     $name = $data->name;
+     $note = $data->note;
+     $dateP= $data->dateP;
+    // $timeP= $data->timeP;
+     $timeP= '9:00';
+     $priority=$data->priority;
+     $state = 'pending';
+     $favorite = $data->favorite;
+     $url = $data->url;
+     $remindersKey = $data->reminder;
 
-   $data = array();
-   if(isset($_GET['id'])){
-        $id= $conn->real_escape_string($_GET['id']);
-        $sql= $conn->query("SELECT * FROM tasks	 WHERE remindersKey='$id';");
-        if($sql){
-            while ($d = $sql->fetch_assoc()){
-                $data[]=$d;
-            }
-            http_response_code(201);
 
+ 
+      $sql = $conn->query("INSERT INTO tasks (name, note, dateP,timeP,priority,state,favorite,url,remindersKey) 
+                            VALUES ('$name', '$note', '$dateP','$timeP','$priority','$state','$favorite','$url','$remindersKey')");
+     if ($sql) {
+
+        $last_id = $remindersKey;
+             
+        //aggiungere add numTask su REMINDERS    
+        $sql2= $conn->query ("SELECT numTask from reminders WHERE reminder_id='$last_id';");
+        if($sql2->num_rows > 0){
+            $data2=$sql2->fetch_assoc();
+            $numTask = $data1['numTask'];
+            $numTask=$numTask+1;
+            $sql3=$conn->query("UPDATE reminders SET numTask = '$numTask' WHERE `reminders`.`reminder_id` = '$last_id';");
+             if($sql3){
+                http_response_code(201);
+             }
+             else{
+                 http_response_code(500);
+                 echo json_encode(array('message' => 'Internal Server error in update reminders set num task '));
+             }
+         }
+        else {
+         http_response_code(500);
+         echo json_encode(array('message' => 'Internal Server error '));
+         }
+     
         }
         else{
             http_response_code(500);
+            echo json_encode(array('message' => 'Internal Server error  '));  
         }
+ 
+ 
 
-    }
-    if(isset($_GET['idTask'])){
-        $idTask= $conn->real_escape_string($_GET['idTask']);
-        $sql= $conn->query("SELECT favorite from tasks where task_id='$idTask';");
-        if($sql){
+   //return
 
-            $result = $sql->fetch_assoc();
-            $resFavorite = $result['favorite'];
-
-           $starOutline='star-outline';
-           $star='star';
-
-            if($resFavorite == $starOutline){
-                $sql1= $conn->query("UPDATE `tasks` SET `favorite`='star' WHERE tasks.task_id='$idTask';");
-           // $resFavorite = 'changed in star';
-            }
-            if($resFavorite == $star){
-                $sql1= $conn->query("UPDATE `tasks` SET `favorite`='star-outline' WHERE tasks.task_id='$idTask';");
-           // $resFavorite = 'changhed in star-outline';
-            }
-
-            http_response_code(201);
-
-        }
-        else{
-            http_response_code(500);
-        }
-
-    }
-    //return
-
-    exit (json_encode($data));
+   exit (json_encode($last_id));
+}

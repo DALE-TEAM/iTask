@@ -99,6 +99,12 @@ export class DashboardPage implements OnInit {
     Navcalendar(){
         this.navCtrl.navigateRoot('calendar');
     }
+    NavCreateReminder(){
+        this.router.navigateByUrl('/add-reminder');
+    }
+    NavCreateTask(){
+        this.router.navigateByUrl('/add-task');
+    }
 
 
 

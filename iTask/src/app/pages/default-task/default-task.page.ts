@@ -8,6 +8,7 @@ import{Reminder} from "../../model/reminder.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AlertController, LoadingController, ToastController,IonReorderGroup} from '@ionic/angular';
 import {IonCheckbox} from "@ionic/angular";
+import * as jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-default-task',
@@ -21,13 +22,14 @@ export class DefaultTaskPage implements OnInit {
   task: Task[100] ;
   // @ts-ignore
   reminder: Reminder[100];
-  isChecked :boolean;
+  isChecked: boolean;
   Uid: any;
-  defIcon:any;
-  defName:any;
+  defIcon: any;
+  defName: any;
+  token: any ;
 
   constructor( private taskService: TaskService,
-               private remindersService:RemindersService,
+               private remindersService: RemindersService,
                private route: ActivatedRoute,
                private router: Router,
                private loadingCtrl: LoadingController,
@@ -49,15 +51,13 @@ export class DefaultTaskPage implements OnInit {
   ngOnInit(){
     this.isChecked=false;
     let key = this.route.snapshot.paramMap.get('key');
-    /*
-    var token = localStorage.getItem('token');
-    var decoded = jwt_decode(token);
-    console.log(decoded);
+    this.token = localStorage.getItem('token');
+    if(this.token){
+      let decoded = jwt_decode(this.token);
 
-    this.name = decoded['name'];
-    this.Uid = decoded['user_id'];
-*/
-    this.Uid= 3;
+      this.Uid =decoded['user_id'];
+    }
+
     if(key=='all'){
       this.taskService.getAllTask(this.Uid).subscribe(response => {
         this.task = response;

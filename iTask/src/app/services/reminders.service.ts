@@ -13,7 +13,9 @@ export class RemindersService {
   constructor(private http: HttpClient,
 
   ) { }
-
+  createReminder(reminder: Reminder) {
+    return this.http.post<any>(`${this.url}/Reminders.php`, reminder);
+  }
   getReminders(id:string){
     return this.http.get<[Reminder]>(this.url + '/Reminders.php' + '?id=' + id);
   }
