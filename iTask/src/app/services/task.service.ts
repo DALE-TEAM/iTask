@@ -34,6 +34,10 @@ export class TaskService {
   getFavoriteTask(id:string){
     return this.http.get<[Task]>(this.url + '/taskByUser.php' + '?idFavorite=' + id);
   }
+  getTaskByDate(id:string, date: string){
+    return this.http.get<[Task]>(this.url + '/taskByDate.php' + '?id=' + id + '&date=' + date);
+
+  }
 
 
 

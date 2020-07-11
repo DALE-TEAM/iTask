@@ -55,8 +55,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/calendar/calendar.module').then(m => m.CalendarPageModule)
   },
 
-
-
 ];
 
 @NgModule({
