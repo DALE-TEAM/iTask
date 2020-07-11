@@ -6,6 +6,8 @@ import {Reminder} from "../../model/reminder.model";
 import {AlertController, LoadingController, ToastController} from '@ionic/angular';
 import {IonItemSliding} from '@ionic/angular';
 import {Router} from "@angular/router";
+import {Storage} from '@ionic/storage';
+
 import {TaskService} from "../../services/task.service";
 import {PlatformLocation} from "@angular/common";
 import { UserService } from 'src/app/services/user.service';
