@@ -71,10 +71,10 @@
 
 
 
-    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab style="margin: 20px;" horizontal="end" vertical="bottom" slot="fixed">
 
 
-      <ion-fab-button color="tertiary">
+      <ion-fab-button color="tertiary" (click)="NavCreateTask(value.reminder_id)">
 
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>

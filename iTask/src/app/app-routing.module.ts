@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),
-    canActivateChild: [AuthGuard]
+    //canActivateChild: [AuthGuard]
   },
   {
     path: 'registration',
@@ -31,7 +31,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'add-task',
+    path: 'add-task/:id',
     loadChildren: () => import('./pages/add-task/add-task.module').then( m => m.AddTaskPageModule)
   },
   {
@@ -57,7 +57,8 @@ const routes: Routes = [
   {
     path: 'search',
     loadChildren: () => import('./modals/search/search.module').then( m => m.SearchPageModule)
-  },  {
+  },
+  {
     path: 'info-reminder',
     loadChildren: () => import('./pages/info-reminder/info-reminder.module').then( m => m.InfoReminderPageModule)
   },

@@ -6,6 +6,7 @@ import {RemindersService } from '../../services/reminders.service';
 import {Reminder} from '../../model/reminder.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TaskService} from '../../services/task.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-add-task',
@@ -24,6 +25,9 @@ export class AddTaskPage implements OnInit {
   favoriteStatus: any;
   last_id: any;
   token: any;
+  id:any;
+  classe:any;
+
 
   constructor(
       private remindersService: RemindersService,
@@ -32,6 +36,7 @@ export class AddTaskPage implements OnInit {
       private toastCtrl: ToastController,
       private loadingCtrl: LoadingController,
       public navCtrl: NavController,
+      private route: ActivatedRoute,
   ) { }
 
   form_addDate = new FormGroup({
@@ -53,8 +58,8 @@ export class AddTaskPage implements OnInit {
       Validators.minLength(3),
     ]),
     reminder: new FormControl('', [
-      Validators.required,
-      Validators.minLength(1),
+      //Validators.required,
+     // Validators.minLength(1),
     ]),
     dateP: new FormControl('', [
 
@@ -66,15 +71,25 @@ export class AddTaskPage implements OnInit {
   });
 
   ngOnInit() {
+    this.classe='';
+    this.id = this.route.snapshot.paramMap.get('id');
     this.token = localStorage.getItem('token');
     if(this.token){
       let decoded = jwt_decode(this.token);
       this.Uid = decoded['user_id'];
     }
     this.favoriteStatus = 'star-outline'; // default status
+
+
     this.remindersService.getReminders(this.Uid).subscribe(response => {
       this.reminder = response;
     });
+
+    if(this.id!= 0){
+      this.classe='ion-hide';
+      this.form_addDate.value.reminder = this.id;
+      console.log(this.id);
+    }
   }
   changeFavoriteStatus(){
     if (this.favoriteStatus == 'star-outline'){

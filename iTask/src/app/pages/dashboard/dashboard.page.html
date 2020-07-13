@@ -48,7 +48,7 @@
           <ion-buttons slot="end">
             <ion-menu-button  style="color: white;"></ion-menu-button>
           </ion-buttons>
-          <ion-title><img src="/../assets/icon/iTask.png"></ion-title>
+          <ion-title><img style="height: 150px" src="/../assets/icon/iTask.png"></ion-title>
 
           <ion-buttons slot="start">
             <ion-button (click)="Navcalendar()" >
@@ -149,16 +149,15 @@
 
           </ion-list >
         </div>
-        <ion-fab horizontal="end" vertical="bottom" slot="fixed">
 
 
-          <ion-fab-button (click)="NavCreateTask()"color="tertiary">
-
-            <ion-icon name="add"></ion-icon>
+      <ion-fab horizontal="end" style="margin: 20px;" vertical="bottom" slot="fixed">
+        <ion-fab-button (click)="NavCreateTask()"color="tertiary">
+          <ion-icon name="add"></ion-icon>
           </ion-fab-button>
         </ion-fab>
-
       </ion-content>
+
 
 
 

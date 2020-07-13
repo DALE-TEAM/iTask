@@ -127,5 +127,9 @@ this.taskService.getTask(id).subscribe(response => {
   navDashboard(){
     this.router.navigateByUrl('/dashboard');
   }
+NavCreateTask(idRem:any){
+  this.router.navigateByUrl('/add-task/'+idRem);
+
+}
 
 }

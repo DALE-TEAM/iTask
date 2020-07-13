@@ -105,7 +105,7 @@ export class DashboardPage implements OnInit {
         this.router.navigateByUrl('/add-reminder');
     }
     NavCreateTask(){
-        this.router.navigateByUrl('/add-task');
+        this.router.navigateByUrl('/add-task/'+0);
     }
 
 
@@ -114,7 +114,7 @@ export class DashboardPage implements OnInit {
         const loading = await this.loadingCtrl.create({ message: 'Elimino Elenco...' });
         await loading.present();
         this.remindersService.deleteReminders(id).subscribe( async response => {
-                const toast = await this.toastCtrl.create({message: 'Elenco eliminato', duration: 3000, color: 'tertiary'});
+                const toast = await this.toastCtrl.create({message: 'Elenco eliminato', duration: 2000, color: 'tertiary'});
                 loading.dismiss();
                 await toast.present();
 

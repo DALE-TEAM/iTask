@@ -45,7 +45,7 @@ export class AddReminderPage implements OnInit {
   });
 
   ngOnInit() {
-    this.color = 'lightblue';
+    this.color = 'lightgreen';
     this.icon = 'list';
     this.token = localStorage.getItem('token');
     if (this.token){
