@@ -57,7 +57,11 @@ const routes: Routes = [
   {
     path: 'search',
     loadChildren: () => import('./modals/search/search.module').then( m => m.SearchPageModule)
+  },  {
+    path: 'info-reminder',
+    loadChildren: () => import('./pages/info-reminder/info-reminder.module').then( m => m.InfoReminderPageModule)
   },
+
 
 ];
 
