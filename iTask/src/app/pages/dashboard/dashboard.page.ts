@@ -15,6 +15,8 @@ import { UserService } from 'src/app/services/user.service';
 
 import {  UpdateEmailPage } from '../../modals/update-email/update-email.page';
 import {  UpdatePassPage } from '../../modals/update-pass/update-pass.page';
+import { SearchPage } from 'src/app/modals/search/search.page';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-dashboard',
@@ -216,5 +218,21 @@ export class DashboardPage implements OnInit {
     
   }
 
+  form = new FormGroup({
+    search: new FormControl('', [
+      Validators.required,
+    ] ),
+  });
+
+  async search() {
+    const modal = await this.modalCtrl.create({
+      component: SearchPage,
+      componentProps: { 
+        search: this.form.value['search']
+
+      }
+    });
+    return await modal.present();
+  }
 
 }

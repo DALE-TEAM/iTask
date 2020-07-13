@@ -54,7 +54,10 @@ export class TaskService {
   addTask(task: Task){
     return this.http.post<any>(`${this.url}/addtask.php`, task);
   }
-
+  
+  searchT(search: string){
+    return this.http.get(`${this.url}/searchT.php`+'?word='+ search);
+  }
   /*
   deleteReminders(id:string){
 

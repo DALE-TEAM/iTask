@@ -54,6 +54,10 @@ const routes: Routes = [
     path: 'calendar',
     loadChildren: () => import('./pages/calendar/calendar.module').then(m => m.CalendarPageModule)
   },
+  {
+    path: 'search',
+    loadChildren: () => import('./modals/search/search.module').then( m => m.SearchPageModule)
+  },
 
 ];
 
