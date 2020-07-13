@@ -31,7 +31,7 @@
     "cordova-plugin-googleplus": "git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git",
     "cordova-sqlite-storage": "^5.0.0",
     "ion2-calendar": "^3.0.0-rc.0",
-    "ionic2-calendar": "^0.6.5",
+    "ionic2-calendar": "^0.6.6",
     "jwt-decode": "^2.2.0",
     "moment": "^2.27.0",
     "rxjs": "^6.5.5",

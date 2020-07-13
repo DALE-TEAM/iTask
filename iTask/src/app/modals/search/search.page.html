@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>search</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon color="light" slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="list">
+    <ion-list  class="elenchi-task">
+
+      <ion-item-sliding class="elenchi-task-sliding" *ngFor="let reminder of resultsR" >
+        <ion-item class="list-item" color="{{reminder.color}}" (click)="NavTask(reminder.reminder_id)">
+          <ion-icon slot="start" name="{{reminder.icon}}"></ion-icon>
+          <ion-label>
+            <h2> {{reminder.name}}</h2>
+          </ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <ion-item-options>
+          <ion-item-option class="elenchi-task-sliding-option1" color="tertiary">
+            <ion-icon slot="top" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+            Modifica
+          </ion-item-option>
+          <ion-item-option class="elenchi-task-sliding-option2"  color="tertiary" (click)="delete_reminder(session.reminder_id)">
+            <ion-icon slot="top" name="trash-outline"></ion-icon>
+            Elimina
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list >
+  </div>
+  <h3>Task:</h3>
+  <div class="list">
+    <ion-list  class="elenchi-task">
+      <ion-item-sliding class="elenchi-task-sliding" *ngFor="let task of resultsT" >
+        <ion-item class="list-item" (click)="NavTask(task.remindersKey)">
+          <ion-label>
+            <h2> {{task.name}}</h2>
+          </ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list >
+  </div>
+</ion-content>
