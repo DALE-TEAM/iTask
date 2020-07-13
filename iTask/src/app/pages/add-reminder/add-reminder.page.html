@@ -31,235 +31,436 @@
 
 
     <ion-grid class="gridRow">
-
       <ion-row>
 
-        <ion-buttons (click)="setColor('lightblue')">
-          <ion-button>
+        <ion-col>
+          <div class="icon-circle" *ngIf="color=='lightgreen'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightgreen" (click)="setColor('lightgreen')"></ion-icon>
 
-            <ion-icon name="ellipse" class="inputReminder2" color="lightblue" ></ion-icon>  </ion-button>
-        </ion-buttons>
+          </div>
+          <div class="icon-nocircle" *ngIf="color!='lightgreen'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightgreen" (click)="setColor('lightgreen')"></ion-icon>
+          </div>
+        </ion-col>
 
-        <ion-buttons>
-          <ion-button (click)="setColor('lightpink')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="color=='lightblue'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightblue" (click)="setColor('lightblue')"></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="color!='lightblue'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightblue" (click)="setColor('lightblue')"></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="ellipse" class="inputReminder2" color="lightpink"></ion-icon>  </ion-button>
-        </ion-buttons>
+        <ion-col>
+          <div class="icon-circle" *ngIf="color=='lightpurple'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightpurple" (click)="setColor('lightpurple')"></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="color!='lightpurple'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightpurple" (click)="setColor('lightpurple')"></ion-icon>
+          </div>
+        </ion-col>
 
-        <ion-buttons>
-          <ion-button (click)="setColor('lightgreen')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="color=='lightpink'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightpink" (click)="setColor('lightpink')"></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="color!='lightpink'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightpink" (click)="setColor('lightpink')"></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="ellipse" class="inputReminder2" color="lightgreen"></ion-icon>  </ion-button>
-        </ion-buttons>
+        <ion-col>
+          <div class="icon-circle" *ngIf="color=='lightorange'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightorange" (click)="setColor('lightorange')"></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="color!='lightorange'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightorange" (click)="setColor('lightorange')"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
 
-        <ion-buttons>
-          <ion-button (click)="setColor('lightpurple')">
+      <ion-row>
+        <ion-col>
+          <div class="icon-circle" *ngIf="color=='greengrass'">
+            <ion-icon name="ellipse" class="inputReminder2" color="greengrass" (click)="setColor('greengrass')"></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="color!='greengrass'">
+            <ion-icon name="ellipse" class="inputReminder2" color="greengrass" (click)="setColor('greengrass')"></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="ellipse" class="inputReminder2" color="lightpurple"></ion-icon>  </ion-button>
-        </ion-buttons>
+        <ion-col>
+          <div class="icon-circle" *ngIf="color=='bluesea'">
+            <ion-icon name="ellipse" class="inputReminder2" color="bluesea" (click)="setColor('bluesea')"></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="color!='bluesea'">
+            <ion-icon name="ellipse" class="inputReminder2" color="bluesea" (click)="setColor('bluesea')"></ion-icon>
+          </div>
+        </ion-col>
 
-        <ion-buttons>
-          <ion-button (click)="setColor('lightorange')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="color=='lightbrown'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightbrown" (click)="setColor('lightbrown')"></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="color!='lightbrown'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightbrown" (click)="setColor('lightbrown')"></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="ellipse" class="inputReminder2" color="lightorange"></ion-icon>  </ion-button>
-        </ion-buttons>
+        <ion-col>
+          <div class="icon-circle" *ngIf="color=='lightyellow'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightyellow" (click)="setColor('lightyellow')"></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="color!='lightyellow'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightyellow" (click)="setColor('lightyellow')"></ion-icon>
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="color=='lightred'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightred" (click)="setColor('lightred')"></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="color!='lightred'">
+            <ion-icon name="ellipse" class="inputReminder2" color="lightred" (click)="setColor('lightred')"></ion-icon>
+          </div>
+        </ion-col>
 
       </ion-row>
-      <ion-row class="rowColor">
-        <ion-buttons>
-          <ion-button (click)="setColor('bluesea')">
 
-            <ion-icon name="ellipse" class="inputReminder2" color="bluesea"></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setColor('lightbrown')">
-
-            <ion-icon name="ellipse" class="inputReminder2" color="lightbrow"></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setColor('lightyellow')">
-
-            <ion-icon name="ellipse" class="inputReminder2" color="lightyellow"></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setColor('lightred')">
-
-            <ion-icon name="ellipse" class="inputReminder2" color="lightred"></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setColor('greengrass')">
-
-            <ion-icon name="ellipse" class="inputReminder2" color="greengrass"></ion-icon>  </ion-button>
-        </ion-buttons>
-      </ion-row>
     </ion-grid>
-
 
     <ion-grid class="gridRow">
       <ion-row>
-        <ion-buttons (click)="setIcon('alarm')">
-          <ion-button>
 
-            <ion-icon name="alarm" class="inputReminder2"  ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('american-football')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='list'">
+            <ion-icon name="list"  class="inputReminder2" (click)="setIcon('list')" ></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='list'">
+            <ion-icon  name="list"  class="inputReminder2" (click)="setIcon('list')" ></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="american-football" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('barbell')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='american-football'">
+            <ion-icon name="american-football"  class="inputReminder2" (click)="setIcon('american-football')" ></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='american-football'">
+            <ion-icon name="american-football"  class="inputReminder2" (click)="setIcon('american-football')" ></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="barbell" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('bookmark')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='home'">
+            <ion-icon   name="home" (click)="setIcon('home')"class="inputReminder2" ></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='home'">
+            <ion-icon  name="home" (click)="setIcon('home')" class="inputReminder2" ></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="bookmark" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('build')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='bookmark'">
+            <ion-icon name="bookmark"  (click)="setIcon('bookmark')"class="inputReminder2" ></ion-icon>
+          </div>
+          <div class="icon-nocircle"*ngIf="icon!='bookmark'">
+            <ion-icon name="bookmark"  (click)="setIcon('bookmark')"class="inputReminder2" ></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="build" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='build'">
+            <ion-icon name="build" (click)="setIcon('build')" class="inputReminder2" ></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='build'">
+            <ion-icon name="build" (click)="setIcon('build')" class="inputReminder2" ></ion-icon>
+
+          </div>
+        </ion-col>
       </ion-row>
       <ion-row class="rowColor">
-        <ion-buttons>
-          <ion-button (click)="setIcon('card')">
 
-            <ion-icon name="card" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('cash')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='card'">
+            <ion-icon name="card" class="inputReminder2" (click)="setIcon('card')"></ion-icon>
 
-            <ion-icon name="cash" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('fitness')">
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='card'">
+            <ion-icon name="card" class="inputReminder2" (click)="setIcon('card')"></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="fitness" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('gift')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='cash'">
+            <ion-icon name="cash" class="inputReminder2"(click)="setIcon('cash')" ></ion-icon>
 
-            <ion-icon name="gift" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('hammer')">
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='cash'">
+            <ion-icon name="cash" class="inputReminder2"(click)="setIcon('cash')" ></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='fitness'">
+            <ion-icon name="fitness" class="inputReminder2" (click)="setIcon('fitness')"></ion-icon>
 
-            <ion-icon name="hammer" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-      </ion-row>
-      <ion-row class="rowColor">
-        <ion-buttons>
-          <ion-button (click)="setIcon('location')">
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='fitness'">
+            <ion-icon name="fitness" class="inputReminder2" (click)="setIcon('fitness')"></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="location" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('mail-unread')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='gift'">
+            <ion-icon name="gift"  class="inputReminder2" (click)="setIcon('gift')"></ion-icon>
 
-            <ion-icon name="mail-unread" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('medical')">
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='gift'">
+            <ion-icon name="gift"  class="inputReminder2" (click)="setIcon('gift')"></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="medical" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('moon')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='hammer'">
+            <ion-icon name="hammer" class="inputReminder2" (click)="setIcon('hammer')"></ion-icon>
 
-            <ion-icon  name="moon" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('musical-notes')">
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='hammer'">
+            <ion-icon name="hammer" class="inputReminder2" (click)="setIcon('hammer')"></ion-icon>
 
-            <ion-icon  name="musical-notes" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-      </ion-row>
-
-      <ion-row class="rowColor">
-        <ion-buttons>
-          <ion-button (click)="setIcon('notifications')">
-
-            <ion-icon name="notifications" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('rainy')">
-
-            <ion-icon name="rainy" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('shirt')">
-
-            <ion-icon name="shirt" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('bulb')">
-
-            <ion-icon name="bulb" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('sunny')">
-
-            <ion-icon name="sunny" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
+          </div>
+        </ion-col>
       </ion-row>
 
       <ion-row class="rowColor">
-        <ion-buttons>
-          <ion-button (click)="setIcon('tennisball')">
 
-            <ion-icon name="tennisball" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('time')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='location'">
+            <ion-icon name="location"  class="inputReminder2" (click)="setIcon('location')"></ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='location'">
+            <ion-icon name="location"  class="inputReminder2" (click)="setIcon('location')"></ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="time" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('train')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='mail-unread'">
+            <ion-icon name="mail-unread" class="inputReminder2" (click)="setIcon('mail-unread')"> </ion-icon>
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='mail-unread'">
+            <ion-icon name="mail-unread" class="inputReminder2" (click)="setIcon('mail-unread')"> </ion-icon>
+          </div>
+        </ion-col>
 
-            <ion-icon name="train" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('umbrella')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='medical'">
+            <ion-icon name="medical" class="inputReminder2" (click)="setIcon('medical')"></ion-icon>
 
-            <ion-icon name="umbrella" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('warning')">
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='medical'">
+            <ion-icon name="medical" class="inputReminder2" (click)="setIcon('medical')"></ion-icon>
 
-            <ion-icon name="warning" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='moon'">
+            <ion-icon  name="moon" class="inputReminder2" (click)="setIcon('moon')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='moon'">
+            <ion-icon  name="moon" class="inputReminder2" (click)="setIcon('moon')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='musical-notes'">
+            <ion-icon  name="musical-notes" class="inputReminder2" (click)="setIcon('musical-notes')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='musical-notes'">
+            <ion-icon  name="musical-notes" class="inputReminder2" (click)="setIcon('musical-notes')"></ion-icon>
+          </div>
+        </ion-col>
+
       </ion-row>
 
       <ion-row class="rowColor">
-        <ion-buttons>
-          <ion-button (click)="setIcon('car-sport')">
 
-            <ion-icon name="car-sport" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('basketball')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='notifications'">
+            <ion-icon name="notifications" class="inputReminder2 "   (click)="setIcon('notifications')"></ion-icon>
 
-            <ion-icon name="basketball" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('cart')">
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='notifications'">
+            <ion-icon name="notifications" class="inputReminder2 "   (click)="setIcon('notifications')"></ion-icon>
 
-            <ion-icon name="cart" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('flower')">
+          </div>
+        </ion-col>
 
-            <ion-icon name="flower" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
-        <ion-buttons>
-          <ion-button (click)="setIcon('key')">
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='rainy'">
+            <ion-icon name="rainy" class="inputReminder2" (click)="setIcon('rainy')"></ion-icon>
 
-            <ion-icon name="key" class="inputReminder2" ></ion-icon>  </ion-button>
-        </ion-buttons>
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='rainy'">
+            <ion-icon name="rainy" class="inputReminder2" (click)="setIcon('rainy')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='shirt'">
+            <ion-icon name="shirt" class="inputReminder2" (click)="setIcon('shirt')" ></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='shirt'">
+            <ion-icon name="shirt" class="inputReminder2" (click)="setIcon('shirt')" ></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='bulb'">
+            <ion-icon name="bulb" class="inputReminder2" (click)="setIcon('bulb')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='bulb'">
+            <ion-icon name="bulb" class="inputReminder2" (click)="setIcon('bulb')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='sunny'">
+            <ion-icon name="sunny" class="inputReminder2" (click)="setIcon('sunny')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='sunny'">
+            <ion-icon name="sunny" class="inputReminder2" (click)="setIcon('sunny')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="rowColor">
+
+        <ion-col>
+          <div class="icon-circle"*ngIf="icon=='tennisball'">
+            <ion-icon name="tennisball" class="inputReminder2" (click)="setIcon('tennisball')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='tennisball'">
+            <ion-icon name="tennisball" class="inputReminder2" (click)="setIcon('tennisball')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle"*ngIf="icon=='time'">
+            <ion-icon name="time" class="inputReminder2" (click)="setIcon('time')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle"*ngIf="icon!='time'">
+            <ion-icon name="time" class="inputReminder2" (click)="setIcon('time')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='train'">
+            <ion-icon name="train" class="inputReminder2" (click)="setIcon('train')" ></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='train'">
+            <ion-icon name="train" class="inputReminder2" (click)="setIcon('train')" ></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='umbrella'">
+            <ion-icon name="umbrella" class="inputReminder2" (click)="setIcon('umbrella')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='umbrella'">
+            <ion-icon name="umbrella" class="inputReminder2" (click)="setIcon('umbrella')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='warning'">
+            <ion-icon name="warning" class="inputReminder2" (click)="setIcon('warning')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='warning'">
+            <ion-icon name="warning" class="inputReminder2" (click)="setIcon('warning')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="rowColor">
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='car-sport'">
+            <ion-icon name="car-sport" class="inputReminder2" (click)="setIcon('car-sport')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='car-sport'">
+            <ion-icon name="car-sport" class="inputReminder2" (click)="setIcon('car-sport')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='basketball'">
+            <ion-icon name="basketball" class="inputReminder2" (click)="setIcon('basketball')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='basketball'">
+            <ion-icon name="basketball" class="inputReminder2" (click)="setIcon('basketball')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='cart'">
+            <ion-icon name="cart" class="inputReminder2" (click)="setIcon('cart')" ></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='cart'">
+            <ion-icon name="cart" class="inputReminder2" (click)="setIcon('cart')" ></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='flower'">
+            <ion-icon name="flower" class="inputReminder2" (click)="setIcon('flower')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='flower'">
+            <ion-icon name="flower" class="inputReminder2" (click)="setIcon('flower')"></ion-icon>
+
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="icon-circle" *ngIf="icon=='key'">
+            <ion-icon name="key" class="inputReminder2" (click)="setIcon('key')"></ion-icon>
+
+          </div>
+          <div class="icon-nocircle" *ngIf="icon!='key'">
+            <ion-icon name="key" class="inputReminder2" (click)="setIcon('key')"></ion-icon>
+
+          </div>
+        </ion-col>
       </ion-row>
 
     </ion-grid>

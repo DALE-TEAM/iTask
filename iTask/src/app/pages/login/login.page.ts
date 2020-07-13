@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
     
     this.UserSrv.login(this.loginForm.value).subscribe(
         async token => {
-          this.loggedIn$.next(true);
+          this.loggedIn$.next(false);
           this.storage.set('token', token);
           localStorage.setItem('token', token);
           loading.dismiss();
