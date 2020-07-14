@@ -9,13 +9,45 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="data"><h4>{{now | date:'EEEE dd MMMM yyyy'}} <br></h4></div>
+  <div class="data"><h4>{{date| date: 'dd MMMM yyyy' }} <br></h4></div>
 
   <calendar
           [calendarMode]="calendar.mode"
           [currentDate]="calendar.currentDate"
-          (onCurrentDateChanged)="onCurrentDateChanged($event)"
-          [locale]="calendar.locale">
-
+          [locale]="calendar.locale"
+          (onCurrentDateChanged)="onCurrentDateChanged($event)">
   </calendar>
+  <div class="tasks">
+    <ion-list >
+
+
+      <ion-item *ngFor="let session of task" color="secondary" class="listaTask">
+        <ion-label>
+          <h2>{{session.name}}</h2>
+          <p  class="listaT">
+            <h10 *ngIf="session.dateP !='2000-01-01'">
+              <ion-icon name="notifications-outline"></ion-icon>
+              {{ session.dateP}}
+              <ion-icon class="punto" name="ellipse"></ion-icon></h10>
+            <h10 *ngIf="session.location != 'NULL'">
+              <ion-icon name="location-outline"></ion-icon>
+              <ion-icon class="punto" name="ellipse"></ion-icon>
+            </h10>
+            <h10 *ngIf="session.note != 'NULL'">
+              <ion-icon name="document-text-outline"></ion-icon>
+
+            </h10>
+          </p>
+        </ion-label>
+        <ion-checkbox  color="primary" [checked]="isChecked" slot="start" class="checkbox" (ionChange)="toast(session.task_id)"></ion-checkbox>
+        <ion-buttons slot="end">
+          <ion-button  (click)="alterFavorite(session.task_id )" >
+            <ion-icon  slot="icon-only" name="{{session.favorite}}"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+
+      </ion-item>
+
+
+    </ion-list></div>
 </ion-content>

@@ -13,7 +13,7 @@ export class WelcomePage implements OnInit {
 
   ngOnInit() {
     setTimeout (() => {
-       this.router.navigateByUrl('dashboard');
+       this.router.navigateByUrl('calendar');
     }, 3000);
   }
 
