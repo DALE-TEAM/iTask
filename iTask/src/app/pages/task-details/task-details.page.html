@@ -1,0 +1,96 @@
+<ion-app>
+  <ion-header >
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/pages/login">
+        </ion-back-button>
+      </ion-buttons>
+      <ion-title>
+       Dettagli Task
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="content">
+
+   
+
+    <form [formGroup]="form_update" (submit)="update()">
+      <ion-list class="addTask-block1">
+        <ion-item color="secondary" class="addTask" lines="full">
+          <ion-input [(ngModel)]="task_name" placeholder="Nome task" type="text" formControlName="name"></ion-input>
+
+          <ion-buttons slot="end">
+            <ion-button (click)="changeFavoriteStatus()">
+              <ion-icon slot="icon-only" name="{{favoriteStatus}}"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item color="secondary" class="ion-hide">
+          <ion-input type="text" formControlName="id" value={{task_id}}></ion-input>
+        </ion-item>
+        <ion-item color="secondary" class="ion-hide">
+          <ion-input  type="text" formControlName="favorite"></ion-input>
+        </ion-item>
+        <ion-item color="secondary" class="addTask1">
+          <ion-input [(ngModel)]="task_note" placeholder="Note"  type="text" formControlName="note"></ion-input>
+        </ion-item>
+        <ion-item color="secondary" class="addTask2">
+          <ion-input  [(ngModel)]="task_url" placeholder="Url" value=""  type="text" formControlName="url"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item color="secondary" class="choice">
+          <ion-label>Priorità</ion-label>
+          <ion-select  [(ngModel)]="task_pri" interface="popover"  formControlName="priority">
+            <ion-select-option value="{{task_pri}}">{{task_pri}}</ion-select-option>
+               <ion-select-option value="nessuna">Nessuna Priorità</ion-select-option>
+            <ion-select-option value="Alta">Alta</ion-select-option>
+            <ion-select-option value="Media">Media</ion-select-option>
+            <ion-select-option value="Bassa">Bassa</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item color="secondary" class="choice2">
+          <ion-label>Elenco</ion-label>
+          <ion-select [(ngModel)]="task_elenco" interface="popover"  formControlName="reminder">
+            <ion-select-option *ngFor="let session of reminder" value="{{session.reminder_id}}">{{session.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <ion-list >
+      <ion-item color="secondary" class="choice">
+        <ion-label>Ricordamelo un giorno</ion-label>
+        <ion-toggle [(ngModel)]="date" slot="end" class="toggle" color="success" ></ion-toggle>
+      </ion-item>
+
+      <form *ngIf="date" [formGroup]="form_update">
+        <ion-datetime [(ngModel)]="task_giorno" formControlName="dateP" placeholder="-- -- ----" display-format="DD/MM/YYYY" picker-format="DD/MM/YYYY" class="datetime">
+        </ion-datetime>
+      </form>
+    </ion-list>
+
+
+    <ion-list>
+      <ion-item color="secondary" class="choice2">
+        <ion-label>Ricordamelo ad un'ora</ion-label>
+
+        <ion-toggle [(ngModel)]="hour" slot="end" class="toggle"  color="success"></ion-toggle>
+      </ion-item>
+      <form *ngIf="hour" [formGroup]="form_update">
+        <ion-datetime [(ngModel)]="task_ora" formControlName="timeP" placeholder="-- : --"  display-format="H:mm" picker-format="H:mm" class="datetime1"></ion-datetime>
+      </form>
+    </ion-list>
+  </ion-content>
+
+  <ion-button (click)="update()" [disabled]="!form_update.valid"  expand="block" color="secondary" class="buttonDone"> MODIFICA </ion-button>
+
+</ion-app>
+

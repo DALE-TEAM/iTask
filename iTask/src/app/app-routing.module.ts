@@ -66,6 +66,10 @@ const routes: Routes = [
     path: 'share',
     loadChildren: () => import('./modals/share/share.module').then(m => m.SharePageModule)
   },
+  {
+    path: 'task-details/:id',
+    loadChildren: () => import('./pages/task-details/task-details.module').then( m => m.TaskDetailsPageModule)
+  },
 
 
 

@@ -10,11 +10,13 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+
+  Elenchi: 
   <div class="list">
     <ion-list  class="elenchi-task">
 
       <ion-item-sliding class="elenchi-task-sliding" *ngFor="let reminder of resultsR" >
-        <ion-item class="list-item" color="{{reminder.color}}" (click)="NavTask(reminder.reminder_id)">
+        <ion-item class="list-item" color="{{reminder.color}}" (click)="NavRem(reminder.reminder_id)">
           <ion-icon slot="start" name="{{reminder.icon}}"></ion-icon>
           <ion-label>
             <h2> {{reminder.name}}</h2>
@@ -39,7 +41,7 @@
   <div class="list">
     <ion-list  class="elenchi-task">
       <ion-item-sliding class="elenchi-task-sliding" *ngFor="let task of resultsT" >
-        <ion-item class="list-item" (click)="NavTask(task.remindersKey)">
+        <ion-item class="list-item" (click)="NavTask(task.task_id)">
           <ion-label>
             <h2> {{task.name}}</h2>
           </ion-label>

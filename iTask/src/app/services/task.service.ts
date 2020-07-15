@@ -58,6 +58,13 @@ export class TaskService {
   searchT(search: string){
     return this.http.get(`${this.url}/searchT.php`+'?word='+ search);
   }
+
+  taskDetails(id: string){
+    return this.http.get(this.url + '/task-details.php' + '?id=' + id);
+  }
+  updateTask(details: Task){
+    return this.http.post(this.url + '/updatetask.php', details);
+  }
   /*
   deleteReminders(id:string){
 

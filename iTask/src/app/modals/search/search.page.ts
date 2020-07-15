@@ -44,6 +44,11 @@ export class SearchPage implements OnInit {
 
   NavTask(id){
     this.modalCtrl.dismiss();
+    this.router.navigateByUrl('/task-details/'+id);
+  }
+
+  NavRem(id){
+    this.modalCtrl.dismiss();
     this.router.navigateByUrl('/lista-task/'+id);
   }
 }
