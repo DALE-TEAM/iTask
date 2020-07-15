@@ -87,10 +87,6 @@ export class DefaultTaskPage implements OnInit {
 
   }
 
-  dettagli_task(){
-    console.log('ciao');
-  }
-
   toggleReorderGroup() {
     this.reorderGroup.disabled = !this.reorderGroup.disabled;
   }
@@ -218,4 +214,7 @@ export class DefaultTaskPage implements OnInit {
     this.router.navigateByUrl('/dashboard');
   }
 
+  dettagli_task(idtask){
+    this.router.navigateByUrl('task-details/'+ idtask);
+  }
 }

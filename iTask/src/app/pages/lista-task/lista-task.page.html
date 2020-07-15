@@ -39,7 +39,7 @@
 
       <ion-reorder-group (ionItemReorder)="doReorder($event)"  >
         <ion-item *ngFor="let session of task" color="secondary" class="listaTask">
-          <ion-label>
+          <ion-label (click)="dettagli_task(session.task_id)">
             <h2>{{session.name}}</h2>
             <p  class="listaT">
               <h10 *ngIf="session.dateP !='2000-01-01'">

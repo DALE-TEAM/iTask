@@ -131,10 +131,10 @@ export class ListaTaskPage implements OnInit {
   navDashboard(){
     this.router.navigateByUrl('/dashboard');
   }
-NavCreateTask(idRem:any){
-  this.router.navigateByUrl('/add-task/'+idRem);
-
-}
+  
+  NavCreateTask(idRem:any){
+    this.router.navigateByUrl('/add-task/'+idRem);
+  }
 
   NavInfoReminder(id){
     this.router.navigateByUrl('/info-reminder/'+ id);

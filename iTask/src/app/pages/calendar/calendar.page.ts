@@ -4,6 +4,7 @@ import {TaskService} from "../../services/task.service";
 import {AlertController, LoadingController, ToastController} from "@ionic/angular";
 import * as moment from 'moment';
 import * as jwt_decode from "jwt-decode";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class CalendarPage implements OnInit {
                private alertCtrl: AlertController,
                private toastCtrl: ToastController,
                private loadingCtrl: LoadingController,
+               private router: Router,
 
   ) { }
 
@@ -140,6 +142,8 @@ export class CalendarPage implements OnInit {
     console.log('ok');
   }
 
-
+  dettagli_task(idtask){
+    this.router.navigateByUrl('task-details/'+ idtask);
+  }
 
 }
