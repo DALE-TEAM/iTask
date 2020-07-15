@@ -35,8 +35,7 @@ sharedUser:any;
   });
 
   async closeModal(){
-    await this.modalCtrl.dismiss();
-
+      await this.modalCtrl.dismiss();
 
   }
 
@@ -58,7 +57,19 @@ sharedUser:any;
 
           loading.dismiss();
           this.shareForm.reset();
-          this.navCtrl.navigateRoot('/lista-task/' + this.last_id) ;
+            this.reminderService.getSharedUser(this.word).subscribe(
+                // If success
+                async response => {
+                    this.sharedUser = response;
+
+                },
+                // // If there is an error
+                async () => {
+                    const alert = await this.alertCtrl.create({ message: 'There is an error', buttons: ['OK'] });
+
+                    await alert.present();
+                }
+            );
         },
         // // If there is an error
         async () => {
