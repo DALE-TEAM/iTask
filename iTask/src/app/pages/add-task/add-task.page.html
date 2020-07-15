@@ -58,11 +58,11 @@
         </ion-item>
       </ion-list>
 
-      <ion-list class="{{classe}}">
+      <ion-list>
         <ion-item color="secondary" class="choice2">
           <ion-label>Elenco</ion-label>
-          <ion-select  interface="popover"  formControlName="reminder">
-            <ion-select-option *ngFor="let session of reminder" value="{{session.reminder_id}}">{{session.name}}</ion-select-option>
+          <ion-select [(ngModel)]="remValue" interface="popover"  formControlName="reminder">
+            <ion-select-option  *ngFor="let session of reminder" value="{{session.reminder_id}}">{{session.name}}</ion-select-option>
 
           </ion-select>
         </ion-item>

@@ -15,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $sql= $conn->query("SELECT t.*
                             FROM tasks as t,userReminder
                             WHERE t.remindersKey=userReminder.reminder 
-                            AND userReminder.user='$id';");
+                            AND userReminder.user='$id'
+                            AND t.state='pending';");
          if($sql){
             $numeroTotTask= $sql->num_rows;
             http_response_code(200);
@@ -33,7 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             FROM tasks as t,userReminder
                             WHERE t.remindersKey=userReminder.reminder 
                             AND userReminder.user='$id'
-                            AND t.dateP='$dataOdierna'");
+                            AND t.dateP='$dataOdierna'
+                            AND t.state='pending';");
          if($sql){
             $numeroTotTask= $sql->num_rows;
             http_response_code(200);
@@ -51,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             FROM tasks as t,userReminder
                             WHERE t.remindersKey=userReminder.reminder 
                             AND userReminder.user='$id'
-                            AND t.favorite='star';");
+                            AND t.favorite='star'
+                            AND t.state='pending';");
          if($sql){
             $numeroTotTask= $sql->num_rows;
             http_response_code(200);

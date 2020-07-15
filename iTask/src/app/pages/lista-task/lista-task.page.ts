@@ -46,8 +46,11 @@ export class ListaTaskPage implements OnInit {
 
   ngOnInit(){
 this.isChecked = false;
-const id = this.route.snapshot.paramMap.get('id');
-this.taskService.getTask(id).subscribe(response => {
+
+  }
+  ionViewDidEnter(){
+    const id = this.route.snapshot.paramMap.get('id');
+    this.taskService.getTask(id).subscribe(response => {
       this.task = response;
       this.remindersService.getRemindersById(id).subscribe(res => {
         this.reminder = res;

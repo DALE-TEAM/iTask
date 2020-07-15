@@ -27,6 +27,9 @@ export class RemindersService {
     return this.http.delete(this.url + '/Reminders.php' + '?id=' + id);
 
   }
+  updateReminder(reminder: Reminder){
+    return this.http.post(`${this.url}/updateReminder.php`, reminder);
+  }
 
   searchR(search: string){
     return this.http.get(`${this.url}/searchR.php`+'?word='+ search);
