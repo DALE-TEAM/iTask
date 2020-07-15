@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border" xmlns="http://www.w3.org/1999/html">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="closeModal()" color="light" defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="title">
+    <h4>Inserisci email del destinatario </h4>
+  </div>
+  <br>
+    <form [formGroup]="shareForm" (submit)="emailShared()" class="list-form">
+          <div padding>
+            <ion-item no-padding class="mailItem" color="secondary" >
+              <ion-icon name="person-outline"></ion-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <ion-input  type="email"  formControlName="email"></ion-input>
+              <ion-input  formControlName="id"  class="ion-hide"></ion-input>
+
+            </ion-item>
+
+          </div></form>
+  <div class="mailButton">
+  <ion-button (click)="emailShared()"> Condividi Elenco</ion-button><br><br>
+</div>
+</ion-content>

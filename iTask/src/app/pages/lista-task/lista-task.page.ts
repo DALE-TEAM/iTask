@@ -136,4 +136,7 @@ NavCreateTask(idRem:any){
 
 }
 
+  NavInfoReminder(id){
+    this.router.navigateByUrl('/info-reminder/'+ id);
+  }
 }

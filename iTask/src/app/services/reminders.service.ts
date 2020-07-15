@@ -28,6 +28,10 @@ export class RemindersService {
 
   }
   updateReminder(reminder: Reminder){
+    // @ts-ignore
+
+
+    // @ts-ignore
     return this.http.post(`${this.url}/updateReminder.php`, reminder);
   }
 

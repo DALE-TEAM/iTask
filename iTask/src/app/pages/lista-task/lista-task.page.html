@@ -29,7 +29,7 @@
   </ion-header>
   <ion-content fullscreen *ngFor="let value of reminder">
 
-    <ion-button  color="{{value.color}}"  expand="block">
+    <ion-button  color="{{value.color}}"  (click)="NavInfoReminder(value.reminder_id)" expand="block">
 
       <ion-icon class="icon"  slot="icon-only" name="{{value.icon}}"> </ion-icon>
       {{value.name}}
