@@ -5,7 +5,7 @@ include_once '../../vendor/autoload.php';
 
 use \Firebase\JWT\JWT;
 
-include_once 'config/cors.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $data = json_decode(file_get_contents("php://input"));
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = $conn->query("UPDATE reminders SET icon = '$icon', name = '$name ', color = '$color' WHERE reminders.reminder_id = '$id';");
      if ($sql) {
 
-        http_response_code(201);
+        http_response_code(200);
         
      } else {
          http_response_code(501);

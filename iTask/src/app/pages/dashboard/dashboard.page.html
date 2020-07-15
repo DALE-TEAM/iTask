@@ -136,7 +136,7 @@
                 {{session.numTask}} <ion-icon name="chevron-forward-outline"></ion-icon>
               </ion-item>
               <ion-item-options>
-                <ion-item-option class="elenchi-task-sliding-option1" color="tertiary">
+                <ion-item-option class="elenchi-task-sliding-option1" color="tertiary" (click)="NavInfoReminder(session.reminder_id)">
                   <ion-icon slot="top" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
                   Modifica
                 </ion-item-option>

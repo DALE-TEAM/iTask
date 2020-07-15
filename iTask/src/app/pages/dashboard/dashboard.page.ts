@@ -107,7 +107,9 @@ export class DashboardPage implements OnInit {
     NavCreateTask(){
         this.router.navigateByUrl('/add-task/'+0);
     }
-
+    NavInfoReminder(id){
+        this.router.navigateByUrl('/info-reminder/'+id);
+    }
 
 
     async delete_reminder(id: any){
