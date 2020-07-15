@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Reminder } from "../model/reminder.model";
-
+import {Share} from "../model/share.model";
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -34,6 +34,13 @@ export class RemindersService {
     // @ts-ignore
     return this.http.post(`${this.url}/updateReminder.php`, reminder);
   }
+  shareReminder(dati: Share){
+    return this.http.post<any>(`${this.url}/shareReminder.php`,dati );
+  }
+  getSharedUser(idrem:any){
+    return this.http.get<any>(this.url + '/shareReminder.php' + '?id=' + idrem);
+  }
+
 
   searchR(search: string){
     return this.http.get(`${this.url}/searchR.php`+'?word='+ search);
