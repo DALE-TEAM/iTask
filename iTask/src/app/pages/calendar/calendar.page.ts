@@ -46,12 +46,15 @@ export class CalendarPage implements OnInit {
 
 
   async onCurrentDateChanged (ev: Date) {
-
-
+    this.token = localStorage.getItem('token');
+    if(this.token) {
+      let decoded = jwt_decode(this.token);
+      this.Uid = decoded['user_id'];
+    }
 
     this.date=(moment(ev).format('YYYY-MM-DD'));
     //this.date = '2020-01-01';
-    this.Uid=3;
+    //this.Uid=3;
 
     this.taskservice.getTaskByDate(this.Uid,this.date).subscribe(   async response => {
           this.task = response;

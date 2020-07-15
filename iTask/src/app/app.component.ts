@@ -24,7 +24,7 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.router.navigateByUrl('welcome');
+      this.router.navigateByUrl('info-reminder');
       this.splashScreen.hide();
     });
   }

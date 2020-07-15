@@ -62,6 +62,11 @@ const routes: Routes = [
     path: 'info-reminder',
     loadChildren: () => import('./pages/info-reminder/info-reminder.module').then( m => m.InfoReminderPageModule)
   },
+  {
+    path: 'share',
+    loadChildren: () => import('./modals/share/share.module').then(m => m.SharePageModule)
+  },
+
 
 
 ];

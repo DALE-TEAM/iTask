@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AlertController } from "@ionic/angular";
+import {AlertController, ModalController} from "@ionic/angular";
+import {SearchPage} from "../../modals/search/search.page";
+import {SharePage} from "../../modals/share/share.page";
+
 
 @Component({
   selector: 'app-info-reminder',
@@ -10,8 +13,11 @@ import {AlertController } from "@ionic/angular";
 export class InfoReminderPage implements OnInit {
   icon: any;
   color:any;
+  private form: FormGroup;
 
-  constructor(public alertController: AlertController) { }
+  constructor(public alertController: AlertController,
+              private modalCtrl: ModalController,
+  ) { }
 
   ngOnInit() {
     this.color='lightblue';
@@ -53,6 +59,21 @@ export class InfoReminderPage implements OnInit {
     console.log(this.form_addReminder.value['icon']);
 
   }
+
+
+  async shareReminder(){
+    const id1=3;
+    const modal = await this.modalCtrl.create({
+      component: SharePage,
+      componentProps: {
+      id: id1
+
+      }
+    });
+    return await modal.present();
+}
+
+
   async alert(){
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -69,7 +90,8 @@ export class InfoReminderPage implements OnInit {
         }, {
           text: 'Condividi',
           handler: () => {
-            console.log('Elenco condiviso ');
+            this.shareReminder();
+
           }
         }
       ]
