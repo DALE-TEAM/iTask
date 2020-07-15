@@ -45,9 +45,9 @@ export class ListaTaskPage implements OnInit {
 
 
   ngOnInit(){
-this.isChecked = false;
-
+    this.isChecked = false;
   }
+  
   ionViewDidEnter(){
     const id = this.route.snapshot.paramMap.get('id');
     this.taskService.getTask(id).subscribe(response => {
@@ -58,9 +58,10 @@ this.isChecked = false;
     });
   }
 
-  dettagli_task(){
-    console.log('ciao');
+  dettagli_task(idtask){
+    this.router.navigateByUrl('task-details/'+ idtask);
   }
+
   toggleReorderGroup() {
     this.reorderGroup.disabled = !this.reorderGroup.disabled;
   }
