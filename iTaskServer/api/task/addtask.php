@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      $name = $data->name;
      $note = $data->note;
      $dateP= $data->dateP;
-    // $timeP= $data->timeP;
-     $timeP= '9:00';
+     $timeP= $data->timeP;
+     
      $priority=$data->priority;
      $state = 'pending';
      $favorite = $data->favorite;
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql2= $conn->query ("SELECT numTask from reminders WHERE reminder_id='$last_id';");
         if($sql2->num_rows > 0){
             $data2=$sql2->fetch_assoc();
-            $numTask = $data1['numTask'];
+            $numTask = $data2['numTask'];
             $numTask=$numTask+1;
             $sql3=$conn->query("UPDATE reminders SET numTask = '$numTask' WHERE `reminders`.`reminder_id` = '$last_id';");
              if($sql3){
