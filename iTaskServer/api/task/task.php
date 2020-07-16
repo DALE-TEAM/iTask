@@ -102,5 +102,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     //return
 
-  //  exit (json_encode($data));   
+    exit (json_encode($data));   
 }
