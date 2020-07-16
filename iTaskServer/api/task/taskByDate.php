@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             FROM tasks as t,userReminder
                             WHERE t.remindersKey=userReminder.reminder
                             AND userReminder.user='$id'
-                            AND t.dateP='$date';");
+                            AND t.dateP='$date'
+                            AND t.state='pending';");
          if($sql){
             while ($d = $sql->fetch_assoc()){
                 $data[]=$d;

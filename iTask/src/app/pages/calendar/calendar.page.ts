@@ -73,7 +73,6 @@ export class CalendarPage implements OnInit {
         }
     );
 
-
   };
 
 
@@ -99,7 +98,7 @@ export class CalendarPage implements OnInit {
       ]
     });
     await toast.present();
-    this.taskservice.getTaskByDate(this.Uid,this.date).subscribe(response => {
+    this.taskservice.getTaskByDate(this.Uid, this.date).subscribe(response => {
       this.task = response;
     });
 
