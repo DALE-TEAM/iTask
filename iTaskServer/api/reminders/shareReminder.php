@@ -28,7 +28,7 @@ use \Firebase\JWT\JWT;
                    // echo json_encode(array('message' => 'Reminder created'));
                 }
                 else{
-                    http_response_code(500);
+                    http_response_code(501);
                     echo json_encode(array('message' => 'Internal Server error  '));
                 }
 

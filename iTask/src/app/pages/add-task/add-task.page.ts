@@ -98,7 +98,7 @@ export class AddTaskPage implements OnInit {
   }
   ionDidViewEnter(){
     this.id = this.route.snapshot.paramMap.get('id');
-    if(this.id != 0){
+    if (this.id != 0){
       this.remValue = this.id;
       console.log(this.id);
     }
