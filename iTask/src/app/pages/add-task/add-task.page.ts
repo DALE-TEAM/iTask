@@ -6,8 +6,9 @@ import {RemindersService } from '../../services/reminders.service';
 import {Reminder} from '../../model/reminder.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TaskService} from '../../services/task.service';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
 import * as moment from 'moment';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.page.html',
@@ -18,19 +19,18 @@ export class AddTaskPage implements OnInit {
   @ViewChild(IonInput) input: IonDatetime;
   public hour = false;
   public date = false;
-
-  momentjs:any=moment;
+  momentjs:any = moment;
   Uid: any;
   // @ts-ignore
   reminder: Reminder[100];
   favoriteStatus: any;
   last_id: any;
   token: any;
-  id:any;
-  classe:any;
+  id: any;
+  classe: any;
   remValue: any;
   NewTime= new Date() ;
-
+  time: any;
 
 
   constructor(
@@ -41,6 +41,7 @@ export class AddTaskPage implements OnInit {
       private loadingCtrl: LoadingController,
       public navCtrl: NavController,
       private route: ActivatedRoute,
+      private localNotifications: LocalNotifications
   ) { }
 
   form_addDate = new FormGroup({
@@ -135,6 +136,25 @@ export class AddTaskPage implements OnInit {
       this.form_addDate.value.note = 'NULL';
     }
 
+    if (this.date && this.hour ){
+
+      var reminder_date = new Date(this.form_addDate.value.dateP +" "+ this.form_addDate.value.timeP);
+      var mydate =  reminder_date.getTime();
+      var nowdate=   new Date().getTime();
+      this.time=mydate-nowdate;
+
+      this.sendNotification(this.time, this.form_addDate.value.name, this.form_addDate.value.dateP,this.form_addDate.value.timeP);
+
+
+    }
+
+
+    //notifiche solo DATA
+    if(this.date && !this.hour){
+      console.log('solo data');
+    }
+
+
     this.form_addDate.value.favorite = this.favoriteStatus;
     // aggiungere conversione per form 'timeP'
 
@@ -170,7 +190,21 @@ export class AddTaskPage implements OnInit {
     console.log('Time:' + this.form_addDate.value.timeP);
     console.log('hour: ' + this.hour + '   date: ' + this.date);
   }
+  sendNotification(time:any, name:any, date:any,timeTask:any){
+    setTimeout(() => {
+      this.localNotifications.schedule({
+        id     : 1,
+        title  : 'Task in scadenza:',
+        text 	: name,
+        data: {message: 'messaggio'},
+        // trigger: {at:new Date(new Date().getTime() + 1000)},
 
+      });
+
+      console.log('task In scadenza: '+ name + 'Impostato per il giorno:'+ date + 'alle ore: '+ timeTask);
+
+    }, time);
+  }
 
 
 }

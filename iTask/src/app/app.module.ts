@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import{ GooglePlus } from "@ionic-native/google-plus/ngx";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgCalendarModule  } from 'ionic2-calendar';
-
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +38,7 @@ import { NgCalendarModule  } from 'ionic2-calendar';
     GooglePlus,
     StatusBar,
     SplashScreen,
+      LocalNotifications,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
