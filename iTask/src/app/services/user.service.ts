@@ -12,6 +12,7 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,9 +21,9 @@ export class UserService {
 
   private authToken: string;
   private loggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  private utente$: BehaviorSubject<User> = new BehaviorSubject<User>({} as User);
   userInfo: any;
   token: any;
+
 
   private url = 'http://localhost:8888/iTaskServer/api/user';
   
@@ -66,9 +67,23 @@ export class UserService {
 
   loginGoogle(){
    return this.google.login({}).then(result => {
-      const user_data_google = result;
-      this.storage.set('userGoogle', user_data_google);
-   })
+      const user_email_google=result.email;
+      const user_name_google=result.givenName;
+      const user_lastname_google=result.familyName;
+      console.log(user_email_google, user_name_google, user_lastname_google);
+      this.loggedIn$.next(true);
+      this.regUser_Google(user_email_google, user_name_google, user_lastname_google).subscribe(token => {
+        console.log(token);
+        localStorage.setItem('token', token);
+        console.log(localStorage.getItem('token'));
+      });
+    })
+  }
+
+  regUser_Google( email: any, name: any, lastname: any): Observable<string> {
+    return this.http.post< { token : string } >(`${this.url}/regUserG.php`, {email, name, lastname}).pipe(
+      map(response => response.token)
+    );
   }
 
   updateEmail(newUser: User, id: any){

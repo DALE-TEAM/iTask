@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
     
     this.UserSrv.login(this.loginForm.value).subscribe(
         async token => {
-          this.loggedIn$.next(false);
+          this.loggedIn$.next(true);
           this.storage.set('token', token);
           localStorage.setItem('token', token);
           loading.dismiss();
@@ -62,10 +62,9 @@ export class LoginPage implements OnInit {
   
   loginGoogle(){
     if (this.pltform.is('cordova')){
-      this.UserSrv.loginGoogle().then(()=>{
+      this.UserSrv.loginGoogle().then(() => { 
+        this.loggedIn$.next(true);
         this.navCtrl.navigateRoot('/dashboard');
-      }).catch(err => {
-         alert('errore');
       })
     }else{
       alert('dispositivo non cordova');
