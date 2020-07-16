@@ -16,6 +16,7 @@ export class InfoReminderPage implements OnInit {
   icon: any;
   color: any;
   private form: FormGroup;
+  Uid: any;
 
   // @ts-ignore
   reminder: Reminder[100];
@@ -130,6 +131,39 @@ export class InfoReminderPage implements OnInit {
     return await modal.present();
 }
 
+  async delete_reminder(){
+    const id = this.route.snapshot.paramMap.get('id');
+
+    const loading = await this.loadingCtrl.create({ message: 'Elimino Elenco...' });
+    await loading.present();
+    this.remindersService.deleteReminders(id).subscribe( async response => {
+          const toast = await this.toastCtrl.create({message: 'Elenco eliminato', duration: 2000, color: 'tertiary'});
+          loading.dismiss();
+          await toast.present();
+
+
+          this.remindersService.getReminders(this.Uid).subscribe(response => {
+            this.reminder = response; });
+
+
+          this.navCtrl.navigateRoot('/dashboard') ;
+
+        },
+        //If there is an error
+        async () => {
+          const alert = await this.alertCtrl.create({ message: 'There is an error', buttons: ['OK'] });
+          loading.dismiss();
+          await alert.present();
+        }
+    );
+
+
+
+
+
+
+
+  }
 
   async alert(){
     const alert = await this.alertController.create({
