@@ -19,7 +19,7 @@
       <ion-input name="new" type="password" formControlName="confPass"></ion-input>
     </ion-item>
     <br><br>
-      <ion-button color="green" shape="round" expand="block" (click)="update()" tappable>Modifica</ion-button>
+      <ion-button color="green" shape="round" expand="block" [disabled]="!updateForm.valid" (click)="update()" tappable>Modifica</ion-button>
   </form>
   <ion-item lines="none" class='form-text error' *ngIf="updateForm.hasError('passwordNotMatch')">
     <ion-label no-margin stacked>Le password non combaciano.</ion-label>
