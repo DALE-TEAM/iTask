@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AlertController, LoadingController, ModalController, NavController, ToastController} from "@ionic/angular";
 import {Router} from "@angular/router";
 import {RemindersService} from "../../services/reminders.service";
+import * as jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-share',
@@ -14,6 +15,9 @@ id;
 word:any;
 last_id:any;
 sharedUser:any;
+userEmail:any;
+decoded: any;
+token: any;
   constructor( private modalCtrl: ModalController,
                private router: Router,
                private alertCtrl: AlertController,
@@ -102,7 +106,11 @@ sharedUser:any;
           await alert.present();
         }
     );
-
+      this.token = localStorage.getItem('token');
+      if(this.token){
+          let decoded = jwt_decode(this.token);
+          this.userEmail = decoded['email'];
+      }
   }
 
 }

@@ -120,11 +120,11 @@ export class InfoReminderPage implements OnInit {
 
 
   async shareReminder(){
-    const id1=3;
+    const id = this.route.snapshot.paramMap.get('id');
     const modal = await this.modalCtrl.create({
       component: SharePage,
       componentProps: {
-      id: id1
+      id: id
 
       }
     });
