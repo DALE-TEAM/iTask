@@ -7,7 +7,7 @@ import {Reminder} from '../../model/reminder.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TaskService} from '../../services/task.service';
 import {ActivatedRoute} from "@angular/router";
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.page.html',
@@ -19,6 +19,7 @@ export class AddTaskPage implements OnInit {
   public hour = false;
   public date = false;
 
+  momentjs:any=moment;
   Uid: any;
   // @ts-ignore
   reminder: Reminder[100];
@@ -28,6 +29,7 @@ export class AddTaskPage implements OnInit {
   id:any;
   classe:any;
   remValue: any;
+  NewTime= new Date() ;
 
 
 
@@ -116,8 +118,17 @@ export class AddTaskPage implements OnInit {
     if (!this.date){
       this.form_addDate.value.dateP = '2000/01/01';
     }
+    else{
+      const NewDate = this.form_addDate.value.dateP.split('T');
+      this.form_addDate.value.dateP = NewDate[0];
+    }
     if (!this.hour){
       this.form_addDate.value.timeP = '';
+    }
+    else{
+      moment.lang("it");
+      this.NewTime = this.momentjs(this.form_addDate.value.timeP).format('LT');
+      this.form_addDate.value.timeP=this.NewTime;
     }
 
     if (this.form_addDate.value.note == ''){
@@ -125,8 +136,6 @@ export class AddTaskPage implements OnInit {
     }
 
     this.form_addDate.value.favorite = this.favoriteStatus;
-    const NewDate = this.form_addDate.value.dateP.split('T');
-    this.form_addDate.value.dateP = NewDate[0];
     // aggiungere conversione per form 'timeP'
 
     const loading = await this.loadingCtrl.create({ message: 'Creazione task in corso...' });
@@ -156,7 +165,7 @@ export class AddTaskPage implements OnInit {
     console.log('priority' + this.form_addDate.value.priority);
     console.log('!reminder:' + this.form_addDate.value.reminder);
 
-    console.log('New date:' + NewDate[0]);
+   // console.log('New date:' + NewDate[0]);
     console.log('date:' + this.form_addDate.value.dateP);
     console.log('Time:' + this.form_addDate.value.timeP);
     console.log('hour: ' + this.hour + '   date: ' + this.date);
