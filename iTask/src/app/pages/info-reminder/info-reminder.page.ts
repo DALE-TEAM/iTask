@@ -151,7 +151,7 @@ export class InfoReminderPage implements OnInit {
         },
         //If there is an error
         async () => {
-          const alert = await this.alertCtrl.create({ message: 'There is an error', buttons: ['OK'] });
+          const alert = await this.alertController.create({ message: 'There is an error', buttons: ['OK'] });
           loading.dismiss();
           await alert.present();
         }
