@@ -65,12 +65,12 @@ export class TaskService {
   updateTask(details: Task){
     return this.http.post(this.url + '/updatetask.php', details);
   }
-  /*
-  deleteReminders(id:string){
 
-    return this.http.delete(this.url + '/Reminders.php' + '?id=' + id);
+  deleteTask(id:string){
+
+    return this.http.delete(this.url + '/deleteTask.php' + '?id=' + id);
 
   }
-  */
+
 
 }

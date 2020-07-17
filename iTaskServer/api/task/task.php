@@ -55,51 +55,86 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     if(isset($_GET['idD'])){
         $idD= $conn->real_escape_string($_GET['idD']);
-        $sql= $conn->query("UPDATE `tasks` SET `state` = 'done' WHERE `tasks`.`task_id` = $idD;");
-        
-       /* if($sql){
-            $sql1= $conn->query("SELECT `remindersKey` FROM `tasks` WHERE `task_id` = '$idP';");
-            $result = $sql1->fetch_assoc();
-            $resRemindersKey = $result['remindersKey'];
-          
-          
-            if ($sql1){
-              
-                
-                $sql2=("SELECT `numTask` FROM `reminders` WHERE `reminder_id` = '$resRemindersKey';");
-                $result2=$sql2->fetch_assoc();
-                $numTask = $result2['numTask'];
-                $numTask--;
-               if($sql2){
-                    $sql3=$conn->query("UPDATE reminders SET numTask = '$numTask' WHERE reminder_id = '$resRemindersKey';");
-                  
-                
-                   
-                }
-                else{
-                    http_response_code(500);
-                 } 
-            }
-            else{
-                http_response_code(500);
-            } 
+        $sql= $conn->query("SELECT remindersKey from tasks WHERE task_id='$idD'");
+        if($sql){
+            $result=$sql->fetch_assoc();
+            $last_id = $result['remindersKey'];
             
+            $sql1= $conn->query("UPDATE `tasks` SET `state` = 'done' WHERE `tasks`.`task_id` = $idD;");
+            if($sql1){
+                
+                $sql2= $conn->query ("SELECT numTask from reminders WHERE reminder_id='$last_id';");
+                if($sql2->num_rows > 0){
+                    $data2=$sql2->fetch_assoc();
+                    $numTask = $data2['numTask'];
+                    $numTask=$numTask-1;
+                    $sql3=$conn->query("UPDATE reminders SET numTask = '$numTask' WHERE `reminders`.`reminder_id` = '$last_id';");
+                        if($sql3){
+                         http_response_code(200);
+                        }
+                        else{
+                         http_response_code(500);
+                         echo json_encode(array('message' => 'Internal Server error in update reminders set num task '));
+                        }
+                }
+                else {
+                http_response_code(500);
+                }
+            }
+            else {
+            http_response_code(500);
+            }
         }
-        else {
-             http_response_code(500);
-        }    
-        
-        */
+        else{
+           http_response_code(500); 
+        }
+       
+       
         http_response_code(200);
     }
 
 
     if(isset($_GET['idP'])){
         $idP= $conn->real_escape_string($_GET['idP']);
-        $sql= $conn->query("UPDATE `tasks` SET `state` = 'pending' WHERE `tasks`.`task_id` = $idP;");
+        $sql= $conn->query("SELECT remindersKey from tasks WHERE task_id='$idP'");
+        if($sql){
+            $result=$sql->fetch_assoc();
+            $last_id = $result['remindersKey'];
+            
+            $sql1= $conn->query("UPDATE `tasks` SET `state` = 'pending' WHERE `tasks`.`task_id` = $idP;");
+            if($sql1){
+                
+                $sql2= $conn->query ("SELECT numTask from reminders WHERE reminder_id='$last_id';");
+                if($sql2->num_rows > 0){
+                    $data2=$sql2->fetch_assoc();
+                    $numTask = $data2['numTask'];
+                    $numTask=$numTask+1;
+                    $sql3=$conn->query("UPDATE reminders SET numTask = '$numTask' WHERE `reminders`.`reminder_id` = '$last_id';");
+                        if($sql3){
+                         http_response_code(200);
+                        }
+                        else{
+                         http_response_code(500);
+                         echo json_encode(array('message' => 'Internal Server error in update reminders set num task '));
+                        }
+                }
+                else {
+                http_response_code(500);
+                }
+            }
+            else {
+            http_response_code(500);
+            }
+        }
+        else{
+           http_response_code(500); 
+        }
        
+
+
+ }
        
-    }
+    
     //return
 
     exit (json_encode($data));   

@@ -156,7 +156,7 @@ export class AddTaskPage implements OnInit {
 
 
     this.form_addDate.value.favorite = this.favoriteStatus;
-    // aggiungere conversione per form 'timeP'
+
 
     const loading = await this.loadingCtrl.create({ message: 'Creazione task in corso...' });
     await loading.present();

@@ -78,7 +78,7 @@
     </ion-list>
 
 
-    <ion-list>
+    <ion-list *ngIf="date">
       <ion-item color="secondary" class="choice2">
         <ion-label>Ricordamelo ad un'ora</ion-label>
 
@@ -89,8 +89,29 @@
       </form>
     </ion-list>
   </ion-content>
+<!--
+  <ion-button  [disabled]="!form_update.valid"  expand="block" color="secondary" class="buttonDone"> MODIFICA
+  <ion-label slot="start" (click)="update()">
+    FATTO
+  </ion-label>
+    <ion-icon slot="end" (click)="deleteTask()" name="star"></ion-icon>
+  </ion-button>
+-->
+  <ion-footer >
+    <ion-toolbar color="secondary">
+      <ion-buttons   (click)="update()">
+        <ion-button  [disabled]="!form_update.valid">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FATTO
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end" (click)="deleteTask()">
 
-  <ion-button (click)="update()" [disabled]="!form_update.valid"  expand="block" color="secondary" class="buttonDone"> MODIFICA </ion-button>
+        <ion-button id="changeText" onClick="toggleText()">
+          <ion-icon slot="start" size="large" color="danger" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
 
 </ion-app>
 

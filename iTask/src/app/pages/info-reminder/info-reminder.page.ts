@@ -157,31 +157,26 @@ export class InfoReminderPage implements OnInit {
         }
     );
 
-
-
-
-
-
-
+    
   }
 
-  async alert(){
+  async delete(){
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Condividi elenco',
-      message: 'Sei sicuro di voler condividere il tuo elenco?',
+      header: 'Eliminazione Elenco',
+      message: 'Sei sicuro di voler eliminare questo elenco?',
       buttons: [
         {
           text: 'Annulla',
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Condivisione annullata');
+            console.log('Operazione annullata');
           }
         }, {
-          text: 'Condividi',
+          text: 'Elimina',
           handler: () => {
-            this.shareReminder();
+            this.delete_reminder();
 
           }
         }

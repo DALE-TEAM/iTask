@@ -22,6 +22,7 @@ export class TaskDetailsPage implements OnInit {
   task_elenco: any;
   task_giorno: any;
   task_ora: any;
+  idreind:any;
   
 
   @ViewChild(IonDatetime) datetime: IonDatetime;
@@ -35,6 +36,7 @@ export class TaskDetailsPage implements OnInit {
   favoriteStatus: any;
   last_id: any;
   token: any;
+  idtask:any;
 
 
   constructor(
@@ -91,6 +93,7 @@ export class TaskDetailsPage implements OnInit {
     this.taskservice.taskDetails(id).subscribe( response => {
       this.res=response;
       this.task_id=this.res[0].id;
+
       this.task_name=this.res[0].name;
       this.task_note=this.res[0].note;
       this.task_url=this.res[0].URL;
@@ -99,12 +102,15 @@ export class TaskDetailsPage implements OnInit {
       this.task_giorno=this.res[0].dateP;
       this.task_ora=this.res[0].timeP;
       this.favoriteStatus=this.res[0].favorite;
-
+if(this.task_note=='NULL'){
+  this.task_note='';
+}
       if(this.task_giorno!='2000-01-01'){
         this.date=true;
       }
-      if(this.task_ora!=''){
+      if(this.task_ora!='00:00:00'){
         this.hour=true;
+
       }
 
     });
@@ -118,7 +124,45 @@ export class TaskDetailsPage implements OnInit {
       this.favoriteStatus = 'star-outline';
     }
   }
+  async deleteTask(){
+    const id = this.route.snapshot.paramMap.get('id');
+      const alert = await this.alertCtrl.create({
+        cssClass: 'my-custom-class',
+        header: 'Elimina Task',
+        message: 'Sei sicuro di voler eliminare il task?',
+        buttons: [
+          {
+            text: 'Annulla',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('eliminazione annullata');
 
+
+
+
+
+
+            }
+          }, {
+            text: 'Elimina',
+            handler: () => {
+              console.log('task deleted');
+              console.log(id);
+              this.taskservice.deleteTask(id).subscribe(response => {
+                const redirection=response;
+                this.navCtrl.navigateRoot('/lista-task/' +  redirection) ;
+
+              });
+            }
+          }
+        ]
+      });
+
+      await alert.present();
+
+
+  }
 
 
 
@@ -134,7 +178,7 @@ export class TaskDetailsPage implements OnInit {
       this.form_update.value.note = 'NULL';
     }
     
-
+this.idreind= this.form_update.value.reminder;
     this.form_update.value.favorite = this.favoriteStatus;
     const NewDate = this.form_update.value.dateP.split('T');
     this.form_update.value.dateP = NewDate[0];
@@ -153,14 +197,14 @@ export class TaskDetailsPage implements OnInit {
 
           loading.dismiss();
           this.form_update.reset();
-          this.navCtrl.navigateRoot('/dashboard') ;
-        }//,
-        // // // If there is an error
-        // async () => {
-        //   const alert = await this.alertCtrl.create({ message: 'There is an error', buttons: ['OK'] });
-        //   loading.dismiss();
-        //   await alert.present();
-        // }
+          this.navCtrl.navigateRoot('/lista-task/' +  this.idreind) ;
+        },
+        //If there is an error
+         async () => {
+          const alert = await this.alertCtrl.create({ message: 'There is an error', buttons: ['OK'] });
+           loading.dismiss();
+           await alert.present();
+         }
     );
   
   }
